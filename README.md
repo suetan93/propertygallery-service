@@ -1,1 +1,1 @@
-# locationgallery-service
+# propertygallery-service
