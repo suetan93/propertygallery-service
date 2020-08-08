@@ -67,5 +67,15 @@ module.exports = {
     callback(null, 'Collections Saved')
   },
 
+  getListing: function(id, callback) {
+    Property.findById(id, (err, property) => {
+      if (err) {
+        callback(err)
+      } else {
+        callback(null, property)
+      }
+    })
+  }
+
 
 }
