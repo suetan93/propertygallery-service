@@ -131,7 +131,7 @@ let images = [
       url: 'https://propertygallery.s3-us-west-1.amazonaws.com/newyork/bedroom2.jpg',
       caption: '',
       verified: faker.random.boolean()
-    }
+    },
     {
       _id: 21,
       url: 'https://propertygallery.s3-us-west-1.amazonaws.com/newyork/livingroom.jpg',
@@ -143,13 +143,13 @@ let images = [
       url: 'https://propertygallery.s3-us-west-1.amazonaws.com/newyork/bathroom.jpg',
       caption: 'Bathroom',
       verified: faker.random.boolean()
-    }
+    },
     {
       _id: 23,
       url: 'https://propertygallery.s3-us-west-1.amazonaws.com/newyork/outsideview.jpg',
       caption: '',
       verified: faker.random.boolean()
-    }
+    },
     {
       _id: 24,
       url: 'https://propertygallery.s3-us-west-1.amazonaws.com/newyork/roofterrace.jpg',

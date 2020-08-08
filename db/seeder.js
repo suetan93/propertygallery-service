@@ -11,6 +11,7 @@ let locations = ['London, England, United Kingdom', 'Kensington, England, United
 
 let listings = []
 
+
 for (let i = 0; i < 100; i++) {
   let propName = adj[Math.floor(Math.random() * 10)] + ' ' + type[Math.floor(Math.random() * 10)];
 

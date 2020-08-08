@@ -16,12 +16,12 @@ const propertySchema = new mongoose.Schema({
   location: String,
   saved: Boolean,
   photos: [
-    {
-      _id: Number,
-      url: String,
-      caption: String,
-      verified: Boolean
-    },
+      {
+        _id: Number,
+        url: String,
+        caption: String,
+        verified: Boolean
+      },
   ]
 });
 
