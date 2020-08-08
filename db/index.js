@@ -35,22 +35,24 @@ db.dropCollection('properties', (err, result) => {
   }
 })
 
-
 let Property = mongoose.model('Properties', propertySchema);
 
 module.exports = {
   load: function(images, callback) {
 
     for (var i = 0; i < 100; i++) {
+      var city = faker.address.city();
+      var state = faker.address.state();
+      var country = faker.address.country();
 
       var listing = new Property({
 
         _id: i,
         name: faker.commerce.productName(),
         rating: faker.random.number({'min': 1, 'max': 5}),
-        totalratings: faker.random.number(),
+        totalratings: faker.random.number({'min': 1, 'max': 800}),
         superhost: faker.random.boolean(),
-        location: faker.address.city(),
+        location: `${city}, ${state}, ${country}`,
         saved: faker.random.boolean(),
         photos: images
 
@@ -64,5 +66,6 @@ module.exports = {
     }
     callback(null, 'Collections Saved')
   },
+
 
 }
