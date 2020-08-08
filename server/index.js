@@ -1,12 +1,24 @@
 const express = require('express')
 const app = express()
-const db = require('../db/index.js')
+const seeder = require('../db/seeder')
+const db = require('../db/index')
 const PORT = 3001
 
-//middleware
+
+app.use(express.static(__dirname + '../client/public'));
+app.use(express.json())
 
 
-//routes
+app.get('/property', (req, res) => {
+  db.getListing(15, (err, result) => {
+    if (err) {
+      res.status(500).send(err)
+    } else {
+      res.status(200).send(result)
+    }
+  })
+
+})
 
 
 app.listen(PORT, (err, result) => {
