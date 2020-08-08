@@ -1,0 +1,38 @@
+{
+  "name": "propertygallery-service",
+  "version": "1.0.0",
+  "description": "property photo gallery on airbnb",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server/index.js",
+    "seed": "node db/seeder.js",
+    "react-dev": "webpack -d --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ladies-room/propertygallery-service.git"
+  },
+  "author": "susan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ladies-room/propertygallery-service/issues"
+  },
+  "homepage": "https://github.com/ladies-room/propertygallery-service#readme",
+  "dependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.1",
+    "@babel/preset-react": "^7.10.4",
+    "axios": "^0.19.2",
+    "babel-loader": "^8.1.0",
+    "express": "^4.17.1",
+    "faker": "^4.1.0",
+    "mongoose": "^5.9.27",
+    "nodemon": "^2.0.4"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.11.0",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  }
+}
