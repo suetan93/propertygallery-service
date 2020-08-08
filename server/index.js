@@ -1,6 +1,5 @@
 const express = require('express')
 const app = express()
-const seeder = require('../db/seeder')
 const db = require('../db/index')
 const PORT = 3001
 
@@ -19,7 +18,6 @@ app.get('/property', (req, res) => {
   })
 
 })
-
 
 app.listen(PORT, (err, result) => {
   if (err) {
