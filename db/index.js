@@ -34,7 +34,7 @@ module.exports = {
       if (err) {
         callback(err)
       } else {
-        callback(null, 'Listings Saved')
+        callback(null, listings)
       }
     })
   },
