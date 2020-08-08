@@ -68,7 +68,6 @@ module.exports = {
   },
 
   getListing: function(id, callback) {
-    console.log(id)
     Property.findById(id, (err, property) => {
       if (err) {
         callback(err)
