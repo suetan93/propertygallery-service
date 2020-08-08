@@ -10,7 +10,7 @@ app.use(express.json())
 
 
 app.get('/property', (req, res) => {
-  db.getListing(15, (err, result) => {
+  db.getListing(req.param.id, (err, result) => {
     if (err) {
       res.status(500).send(err)
     } else {
