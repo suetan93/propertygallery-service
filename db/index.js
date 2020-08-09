@@ -1,4 +1,3 @@
-const faker = require('faker');
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/airbnb');
 
@@ -17,52 +16,38 @@ const propertySchema = new mongoose.Schema({
   location: String,
   saved: Boolean,
   photos: [
-    {
-      _id: Number,
-      url: String,
-      caption: String,
-      verified: Boolean
-    },
+      {
+        _id: Number,
+        url: String,
+        caption: String,
+        verified: Boolean
+      },
   ]
 });
-
-//drop collection
-db.dropCollection('properties', (err, result) => {
-  if (err) {
-    console.log(err)
-  } else {
-    console.log('Collections dropped')
-  }
-})
 
 
 let Property = mongoose.model('Properties', propertySchema);
 
 module.exports = {
-  load: function(images, callback) {
-
-    for (var i = 0; i < 100; i++) {
-
-      var listing = new Property({
-
-        _id: i,
-        name: faker.commerce.productName(),
-        rating: faker.random.number({'min': 1, 'max': 5}),
-        totalratings: faker.random.number(),
-        superhost: faker.random.boolean(),
-        location: faker.address.city(),
-        saved: faker.random.boolean(),
-        photos: images
-
-      })
-
-      listing.save((err) => {
-        if (err) {
-          callback(err)
-        }
-      })
-    }
-    callback(null, 'Collections Saved')
+  load: function(listings, callback) {
+    Property.insertMany(listings, (err, listings) => {
+      if (err) {
+        callback(err)
+      } else {
+        callback(null, listings)
+      }
+    })
   },
+
+  getListing: function(id, callback) {
+    Property.findById(id, (err, property) => {
+      if (err) {
+        callback(err)
+      } else {
+        callback(null, property)
+      }
+    })
+  }
+
 
 }
