@@ -6,7 +6,7 @@ mongoose.connect('mongodb://localhost/airbnb');
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 // eslint-disable-next-line prefer-arrow-callback
-db.once('open', function () {
+db.once('open', () => {
   console.log('Connected to airbnb database');
 });
 

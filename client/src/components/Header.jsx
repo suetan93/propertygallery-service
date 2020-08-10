@@ -1,4 +1,5 @@
 import React from 'react';
+import TitleBar from './TitleBar.jsx';
 
 class Header extends React.Component {
   constructor(props) {
@@ -9,7 +10,8 @@ class Header extends React.Component {
   render() {
     return (
       <div>
-        <h1>Photo Gallery</h1>
+        <br />
+        <TitleBar />
       </div>
     );
   }

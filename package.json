@@ -23,15 +23,16 @@
   "homepage": "https://github.com/ladies-room/propertygallery-service#readme",
   "dependencies": {
     "axios": "^0.19.2",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "express": "^4.17.1",
     "faker": "^4.1.0",
+    "jest": "^23.4.2",
     "mongoose": "^5.9.27",
     "nodemon": "^2.0.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
-    "jest": "^23.4.2"
+    "styled-components": "^5.1.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.5",
@@ -51,8 +52,9 @@
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
   },
-
   "jest": {
-    "snapshotSerializers": ["enzyme-to-json/serializer"]
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   }
 }
