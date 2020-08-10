@@ -31,7 +31,7 @@ const propertySchema = new mongoose.Schema({
 const Property = mongoose.model('Properties', propertySchema);
 
 module.exports = {
-  load: function (listings, callback) {
+  load(listings, callback) {
     Property.insertMany(listings, (err, results) => {
       if (err) {
         callback(err);
@@ -41,7 +41,7 @@ module.exports = {
     });
   },
 
-  getListing: function (id, callback) {
+  getListing(id, callback) {
     Property.findById(id, (err, property) => {
       if (err) {
         callback(err);
