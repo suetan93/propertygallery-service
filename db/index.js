@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
+
 mongoose.connect('mongodb://localhost/airbnb');
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-  console.log('Connected to airbnb database')
+db.once('open', function () {
+  console.log('Connected to airbnb database');
 });
 
 const propertySchema = new mongoose.Schema({
@@ -16,38 +17,36 @@ const propertySchema = new mongoose.Schema({
   location: String,
   saved: Boolean,
   photos: [
-      {
-        _id: Number,
-        url: String,
-        caption: String,
-        verified: Boolean
-      },
-  ]
+    {
+      _id: Number,
+      url: String,
+      caption: String,
+      verified: Boolean,
+    },
+  ],
 });
 
-
-let Property = mongoose.model('Properties', propertySchema);
+const Property = mongoose.model('Properties', propertySchema);
 
 module.exports = {
-  load: function(listings, callback) {
-    Property.insertMany(listings, (err, listings) => {
+  load: function (listings, callback) {
+    Property.insertMany(listings, (err, results) => {
       if (err) {
-        callback(err)
+        callback(err);
       } else {
-        callback(null, listings)
+        callback(null, results);
       }
-    })
+    });
   },
 
-  getListing: function(id, callback) {
+  getListing: function (id, callback) {
     Property.findById(id, (err, property) => {
       if (err) {
-        callback(err)
+        callback(err);
       } else {
-        callback(null, property)
+        callback(null, property);
       }
-    })
-  }
+    });
+  },
 
-
-}
+};
