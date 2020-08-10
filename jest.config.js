@@ -1,3 +1,7 @@
 module.exports = {
-  setupFles: ['<rootDir>/client/tests/enzyme.config.js'];
-}
+  setupFiles: ['<rootDir>/client/src/tests/setupTest.js'],
+  transform: {
+    '^.+\\.jsx?$': 'babel-jest',
+  },
+
+};

@@ -12,7 +12,7 @@ const listings = [];
 
 // eslint-disable-next-line no-plusplus
 for (let i = 0; i < 100; i++) {
-  const propName = adj[Math.floor(Math.random() * 10)] + ' ' + type[Math.floor(Math.random() * 10)];
+  const propName = `${adj[Math.floor(Math.random() * 10)]} ${type[Math.floor(Math.random() * 10)]}`;
 
   const obj = {
     _id: i,
