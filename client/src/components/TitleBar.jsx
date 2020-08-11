@@ -20,7 +20,7 @@ const Grid = styled.div`
 `;
 
 const Nested = styled.div`
-  font-size: 14px;
+  font-size: 12px;
   display: flex;
   align-items: center;
   border: 1px dashed;
@@ -29,7 +29,6 @@ const Nested = styled.div`
 const TitleBar = (props) => (
   <Wrapper>
     Oceanfront Condo
-    <Icon name="home" />
     <Grid>
       <Nested>'s'</Nested>
       <Nested><b>4.70</b></Nested>
