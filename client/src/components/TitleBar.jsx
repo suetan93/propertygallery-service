@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Icon } from 'semantic-ui-react';
 
 const Wrapper = styled.div`
   margin: 0 auto;
