@@ -15,7 +15,7 @@ const Wrapper = styled.div`
 const Grid = styled.div`
   display: grid;
   grid-template-columns: 18px 34px 50px 100px 200px auto 77px 70px;
-  grid-auto-rows: 32px;
+  grid-template-rows: 32px;
   line-height: 20px;
 `;
 
@@ -30,14 +30,14 @@ const TitleBar = (props) => (
   <Wrapper>
     Oceanfront Condo
     <Grid>
-      <Nested>'s'</Nested>
+      <Nested>s</Nested>
       <Nested><b>4.70</b></Nested>
       <Nested>(327) ·</Nested>
-      <Nested>'i' Superhost · </Nested>
+      <Nested>i Superhost · </Nested>
       <Nested>Hilo, Hawaii, United States</Nested>
       <Nested />
       <Nested>Share</Nested>
-      <Nested>'h' Save</Nested>
+      <Nested>h Save</Nested>
     </Grid>
   </Wrapper>
 );
