@@ -10,8 +10,8 @@ const dist = path.join(__dirname, '../client/public');
 app.use(express.static(dist));
 app.use(express.json());
 
-app.get('/property', (req, res) => {
-  db.getListing(req.param.id, (err, result) => {
+app.get('/property/:id', (req, res) => {
+  db.getListing(req.params.id, (err, result) => {
     if (err) {
       res.status(500).send(err);
     } else {

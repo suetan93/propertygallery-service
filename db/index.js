@@ -6,7 +6,7 @@ mongoose.connect('mongodb://localhost/airbnb');
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 // eslint-disable-next-line prefer-arrow-callback
-db.once('open', function () {
+db.once('open', () => {
   console.log('Connected to airbnb database');
 });
 
@@ -31,7 +31,7 @@ const propertySchema = new mongoose.Schema({
 const Property = mongoose.model('Properties', propertySchema);
 
 module.exports = {
-  load: function (listings, callback) {
+  load(listings, callback) {
     Property.insertMany(listings, (err, results) => {
       if (err) {
         callback(err);
@@ -41,7 +41,7 @@ module.exports = {
     });
   },
 
-  getListing: function (id, callback) {
+  getListing(id, callback) {
     Property.findById(id, (err, property) => {
       if (err) {
         callback(err);
