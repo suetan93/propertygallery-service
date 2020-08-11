@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Icon } from 'semantic-ui-react';
 
 const Wrapper = styled.div`
+  margin: 0 auto;
   width: 1000px;
   height: 64px;
   border: 1px dashed;
@@ -13,7 +14,6 @@ const Wrapper = styled.div`
 
 const Grid = styled.div`
   display: grid;
-  width: 1000px;
   grid-template-columns: 18px 34px 50px 100px 200px auto 77px 70px;
   grid-auto-rows: 32px;
   line-height: 20px;

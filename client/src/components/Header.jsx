@@ -1,5 +1,6 @@
 import React from 'react';
 import TitleBar from './TitleBar.jsx';
+import Gallery from './Gallery.jsx';
 
 class Header extends React.Component {
   constructor(props) {
@@ -12,6 +13,8 @@ class Header extends React.Component {
       <div>
         <br />
         <TitleBar />
+        <br />
+        <Gallery />
       </div>
     );
   }
