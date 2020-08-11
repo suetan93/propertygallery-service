@@ -13,7 +13,7 @@ const Wrapper = styled.div`
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: 18px 34px 50px 100px 200px auto 77px 70px;
+  grid-template-columns: 18px 34px 50px 100px auto auto 77px 70px;
   grid-template-rows: 32px;
   line-height: 20px;
 `;
@@ -30,15 +30,19 @@ const TitleBar = (props) => (
     Oceanfront Condo
     <Grid>
       <Nested>s</Nested>
-      <Nested><b>4.70</b></Nested>
-      <Nested>(327) ·</Nested>
-      <Nested>i Superhost · </Nested>
-      <Nested>Hilo, Hawaii, United States</Nested>
+      <Nested><b>{props.listing.rating}</b></Nested>
+      <Nested>({props.listing.totalratings}) ·</Nested>
+      <Nested>i Superhost ·</Nested>
+      <Nested>{props.listing.location}</Nested>
       <Nested />
       <Nested>Share</Nested>
       <Nested>h Save</Nested>
     </Grid>
   </Wrapper>
 );
+
+// TitleBar.propTypes = {
+//   rating: PropTypes.number.isRequired,
+// };
 
 export default TitleBar;

@@ -29,12 +29,15 @@ class Header extends React.Component {
   }
 
   render() {
+    const { property } = this.state;
+    const { photos } = this.state.property;
+
     return (
       <div>
         <br />
-        <TitleBar />
+        <TitleBar listing={property} />
         <br />
-        <Gallery />
+        <Gallery images={photos} />
       </div>
     );
   }
