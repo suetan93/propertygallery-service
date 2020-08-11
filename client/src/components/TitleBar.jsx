@@ -1,18 +1,46 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Icon } from 'semantic-ui-react';
 
-const Title = styled.p`
-  font-family: Circular, -apple-system, system-ui, Roboto, "Helvetica Neue", sans-serif;
+const Wrapper = styled.div`
+  width: 1000px;
+  height: 64px;
+  border: 1px dashed;
   font-size: 26px;
-  line-height: 30px;
-  text-align: start;
+  font-family: Circular, -apple-system, system-ui, Roboto, "Helvetica Neue", sans-serif;
   letter-spacing: normal;
 `;
 
+const Grid = styled.div`
+  display: grid;
+  width: 1000px;
+  grid-template-columns: 18px 34px 50px 100px 200px auto 77px 70px;
+  grid-auto-rows: 32px;
+  line-height: 20px;
+`;
+
+const Nested = styled.div`
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  border: 1px dashed;
+`;
+
 const TitleBar = (props) => (
-  <div>
-    <Title>Oceanfront Condo</Title>
-  </div>
+  <Wrapper>
+    Oceanfront Condo
+    <Icon name="home" />
+    <Grid>
+      <Nested>'s'</Nested>
+      <Nested><b>4.70</b></Nested>
+      <Nested>(327) ·</Nested>
+      <Nested>'i' Superhost · </Nested>
+      <Nested>Hilo, Hawaii, United States</Nested>
+      <Nested />
+      <Nested>Share</Nested>
+      <Nested>'h' Save</Nested>
+    </Grid>
+  </Wrapper>
 );
 
 export default TitleBar;
