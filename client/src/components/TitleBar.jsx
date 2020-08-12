@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Icon } from 'semantic-ui-react';
+import Arrow from './ArrowIcon.jsx';
+import Heart from './HeartIcon.jsx';
 
 const Wrapper = styled.div`
   margin: 0 auto;
@@ -8,13 +9,13 @@ const Wrapper = styled.div`
   height: 64px;
   border: 1px dashed;
   font-size: 26px;
-  font-family: Circular, -apple-system, system-ui, Roboto, "Helvetica Neue", sans-serif;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
   letter-spacing: normal;
 `;
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: 18px 34px 50px 100px 200px auto 77px 70px;
+  grid-template-columns: 15px 34px 45px 90px auto auto 77px 70px;
   grid-template-rows: 32px;
   line-height: 20px;
 `;
@@ -26,18 +27,33 @@ const Nested = styled.div`
   border: 1px dashed;
 `;
 
+const Star = styled.span`
+  font-size: 12px;
+  font-weight: 600;
+  color: #ff385c;
+  display: flex;
+  align-items: center;
+  border: 1px dashed;
+`;
+
 const TitleBar = (props) => (
   <Wrapper>
-    Oceanfront Condo
+    {props.listing.name}
     <Grid>
-      <Nested>s</Nested>
-      <Nested><b>4.70</b></Nested>
-      <Nested>(327) ·</Nested>
-      <Nested>i Superhost · </Nested>
-      <Nested>Hilo, Hawaii, United States</Nested>
+      <Star>&#9733;</Star>
+      <Nested><b>{props.listing.rating}</b></Nested>
+      <Nested>({props.listing.totalratings}) ·</Nested>
+      <Nested>i Superhost ·</Nested>
+      <Nested>{props.listing.location}</Nested>
       <Nested />
-      <Nested>Share</Nested>
-      <Nested>h Save</Nested>
+      <Nested>
+        <Arrow />
+        Share
+      </Nested>
+      <Nested>
+        <Heart />
+        Save
+      </Nested>
     </Grid>
   </Wrapper>
 );
