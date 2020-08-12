@@ -8,6 +8,7 @@ class Header extends React.Component {
     super(props);
     this.state = {
       property: {},
+      images: [],
     };
 
     this.getListing = this.getListing.bind(this);
@@ -25,19 +26,19 @@ class Header extends React.Component {
   }
 
   updateState(listing) {
-    this.setState({ property: listing.data });
+    this.setState({ property: listing.data, images: listing.data.photos });
   }
 
   render() {
     const { property } = this.state;
-    const { photos } = this.state.property;
+    const { images } = this.state;
 
     return (
       <div>
         <br />
         <TitleBar listing={property} />
         <br />
-        <Gallery images={photos} />
+        <Gallery images={images} />
       </div>
     );
   }

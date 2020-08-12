@@ -1,6 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const ButtonDiv = styled.div`
+  position: relative;
+  margin-top: -3.5em;
+  margin-left: 7em;
+  width: 111px;
+  border: 1px dashed red;
+`;
+
 const PhotoBox = styled.div`
   display: grid;
   margin: 0 auto;
@@ -11,13 +19,8 @@ const PhotoBox = styled.div`
   gap: 5px;
 `;
 
-const Photo = styled.div`
-
-`;
-
 const MainPhoto = styled.div`
    grid-row: 1 / span 2;
-
 `;
 
 const left = {
@@ -28,40 +31,43 @@ const left = {
 };
 
 const mid = {
-  width: 243,
+  width: 244,
   height: 150,
 };
 
 const topRight = {
-  width: 243,
+  width: 244,
   height: 150,
   borderTopRightRadius: 15,
 };
 
 const bottomRight = {
-  width: 243,
+  width: 244,
   height: 150,
   borderBottomRightRadius: 15,
 };
 
-const Gallery = (props) => {
-  // console.log(props.images[0])
-  return (
+const Gallery = (props) => (
   <PhotoBox>
     <MainPhoto>
       <img src="https://propertygallery.s3-us-west-1.amazonaws.com/Miami+Set/Couch1.jpg" alt="" style={left} />
     </MainPhoto>
-    <Photo>
+    <div id="Photo2" className="image">
       <img src="https://propertygallery.s3-us-west-1.amazonaws.com/Miami+Set/Kitchen1.jpg" alt="" style={mid} />
-    </Photo>
-    <Photo>
+    </div>
+    <div id="Photo3" className="image">
       <img src="https://propertygallery.s3-us-west-1.amazonaws.com/Miami+Set/LivingArea1.jpg" alt="" style={topRight} />
-    </Photo>
-    <Photo>
-      <img src="https://propertygallery.s3-us-west-1.amazonaws.com/Miami+Set/LivingArea1.jpg" alt="" style={mid} /></Photo>
-    <Photo><img src="https://propertygallery.s3-us-west-1.amazonaws.com/Miami+Set/PoolArea1.jpg" alt="" style={bottomRight} /></Photo>
+    </div>
+    <div id="Photo4" className="image">
+      <img src="https://propertygallery.s3-us-west-1.amazonaws.com/Miami+Set/LivingArea1.jpg" alt="" style={mid} />
+    </div>
+    <div id="Photo5" className="image">
+      <img src="https://propertygallery.s3-us-west-1.amazonaws.com/Miami+Set/PoolArea1.jpg" alt="" style={bottomRight} />
+    <ButtonDiv>
+      <button type="button">Show all photos</button>
+    </ButtonDiv>
+    </div>
   </PhotoBox>
- )
-};
+);
 
 export default Gallery;
