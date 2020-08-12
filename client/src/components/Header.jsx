@@ -11,15 +11,10 @@ class Header extends React.Component {
       images: [],
     };
 
-    this.getListing = this.getListing.bind(this);
     this.updateState = this.updateState.bind(this);
   }
 
   componentDidMount() {
-    this.getListing();
-  }
-
-  getListing() {
     axios.get('/property/15')
       .then(this.updateState)
       .catch(console.log);
