@@ -50,22 +50,22 @@ const bottomRight = {
 const Gallery = (props) => (
   <PhotoBox>
     <MainPhoto>
-      <img src="https://propertygallery.s3-us-west-1.amazonaws.com/Miami+Set/Couch1.jpg" alt="" style={left} />
+      <img src={`${props.images[0].url}`} alt="" style={left} />
     </MainPhoto>
     <div id="Photo2" className="image">
-      <img src="https://propertygallery.s3-us-west-1.amazonaws.com/Miami+Set/Kitchen1.jpg" alt="" style={mid} />
+      <img src={`${props.images[1].url}`} alt="" style={mid} />
     </div>
     <div id="Photo3" className="image">
-      <img src="https://propertygallery.s3-us-west-1.amazonaws.com/Miami+Set/LivingArea1.jpg" alt="" style={topRight} />
+      <img src={`${props.images[2].url}`} alt="" style={topRight} />
     </div>
     <div id="Photo4" className="image">
-      <img src="https://propertygallery.s3-us-west-1.amazonaws.com/Miami+Set/LivingArea1.jpg" alt="" style={mid} />
+      <img src={`${props.images[3].url}`} alt="" style={mid} />
     </div>
     <div id="Photo5" className="image">
-      <img src="https://propertygallery.s3-us-west-1.amazonaws.com/Miami+Set/PoolArea1.jpg" alt="" style={bottomRight} />
-    <ButtonDiv>
-      <button type="button">Show all photos</button>
-    </ButtonDiv>
+      <img src={`${props.images[4].url}`} alt="" style={bottomRight} />
+      <ButtonDiv>
+        <button type="button">Show all photos</button>
+      </ButtonDiv>
     </div>
   </PhotoBox>
 );

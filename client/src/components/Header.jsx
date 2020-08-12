@@ -38,7 +38,7 @@ class Header extends React.Component {
         <br />
         <TitleBar listing={property} />
         <br />
-        <Gallery images={images} />
+        {images.length > 0 ? <Gallery images={images} /> : null}
       </div>
     );
   }
