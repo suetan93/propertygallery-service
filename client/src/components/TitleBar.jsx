@@ -13,13 +13,21 @@ const Wrapper = styled.div`
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: 18px 34px 50px 100px auto auto 77px 70px;
+  grid-template-columns: 15px 34px 50px 100px auto auto 77px 70px;
   grid-template-rows: 32px;
   line-height: 20px;
 `;
 
 const Nested = styled.div`
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  border: 1px dashed;
+`;
+
+const Star = styled.span`
   font-size: 12px;
+  color: #ff385c;
   display: flex;
   align-items: center;
   border: 1px dashed;
@@ -29,7 +37,7 @@ const TitleBar = (props) => (
   <Wrapper>
     Oceanfront Condo
     <Grid>
-      <Nested>s</Nested>
+      <Star>&#9733;</Star>
       <Nested><b>{props.listing.rating}</b></Nested>
       <Nested>({props.listing.totalratings}) ·</Nested>
       <Nested>i Superhost ·</Nested>

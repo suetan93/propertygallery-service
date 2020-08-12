@@ -12,24 +12,56 @@ const PhotoBox = styled.div`
 `;
 
 const Photo = styled.div`
-  border: 1px dashed;
+
 `;
 
 const MainPhoto = styled.div`
    grid-row: 1 / span 2;
-   border: 1px dashed;
+
 `;
 
-const Gallery = (props) => (
+const left = {
+  width: 500,
+  height: 305,
+  borderTopLeftRadius: 15,
+  borderBottomLeftRadius: 15,
+};
 
+const mid = {
+  width: 243,
+  height: 150,
+};
+
+const topRight = {
+  width: 243,
+  height: 150,
+  borderTopRightRadius: 15,
+};
+
+const bottomRight = {
+  width: 243,
+  height: 150,
+  borderBottomRightRadius: 15,
+};
+
+const Gallery = (props) => {
+  // console.log(props.images[0])
+  return (
   <PhotoBox>
-    <MainPhoto>Photo1</MainPhoto>
-    <Photo>Photo2</Photo>
-    <Photo>Photo3</Photo>
-    <Photo>Photo4</Photo>
-    <Photo>Photo5</Photo>
+    <MainPhoto>
+      <img src="https://propertygallery.s3-us-west-1.amazonaws.com/Miami+Set/Couch1.jpg" alt="" style={left} />
+    </MainPhoto>
+    <Photo>
+      <img src="https://propertygallery.s3-us-west-1.amazonaws.com/Miami+Set/Kitchen1.jpg" alt="" style={mid} />
+    </Photo>
+    <Photo>
+      <img src="https://propertygallery.s3-us-west-1.amazonaws.com/Miami+Set/LivingArea1.jpg" alt="" style={topRight} />
+    </Photo>
+    <Photo>
+      <img src="https://propertygallery.s3-us-west-1.amazonaws.com/Miami+Set/LivingArea1.jpg" alt="" style={mid} /></Photo>
+    <Photo><img src="https://propertygallery.s3-us-west-1.amazonaws.com/Miami+Set/PoolArea1.jpg" alt="" style={bottomRight} /></Photo>
   </PhotoBox>
-
-);
+ )
+};
 
 export default Gallery;
