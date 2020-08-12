@@ -38,7 +38,7 @@ const Star = styled.span`
 
 const TitleBar = (props) => (
   <Wrapper>
-    Oceanfront Condo
+    {props.listing.name}
     <Grid>
       <Star>&#9733;</Star>
       <Nested><b>{props.listing.rating}</b></Nested>
