@@ -13,6 +13,7 @@ const Wrapper = styled.div`
   letter-spacing: normal;
 `;
 
+// use props in styled components for conditonal renderings
 const Grid = styled.div`
   display: grid;
   grid-template-columns: 15px 34px 45px 90px auto auto 77px 70px;
