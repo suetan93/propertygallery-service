@@ -48,7 +48,13 @@ class Header extends React.Component {
           />
         )
           : null}
-        <Modal showModal={showModal} toggleModal={this.toggleModal} />
+        {images.length > 0 ? (
+          <Modal
+            showModal={showModal}
+            toggleModal={this.toggleModal}
+            images={images}
+          />
+        ) : null}
       </div>
     );
   }
