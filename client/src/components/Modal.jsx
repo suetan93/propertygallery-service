@@ -11,12 +11,11 @@ const Window = styled.div`
   height: 100%;
   margin-top: -25em;
   grid-template-rows: 10% 55% 30%;
-  transition: all 0.3s ease-out;
 `;
 
 const Head = styled.div`
  display: grid;
- border: 1px dashed red;
+ border: 1px dashed blue;
  grid-template-columns: 1fr 1fr 1fr;
 `;
 
@@ -27,11 +26,22 @@ const Title = styled.div`
 `;
 
 const Body = styled.div`
+  display: grid;
+  border: 1px dashed black;
+  grid-template-columns: 1fr 3fr 1fr;
+`;
+const Content = styled.div`
   border: 1px dashed black;
 `;
 
 const Footer = styled.div`
-  border: 1px dashed green;
+  display: grid;
+  grid-template-rows: 15% 85%;
+  border: 1px dashed red;
+`;
+
+const Description = styled.div`
+  border: 1px dashed red;
 `;
 
 const Modal = (props) => (
@@ -47,14 +57,28 @@ const Modal = (props) => (
           </Title>
           <Title>
             <Arrow />
+            &nbsp;
             <Heart />
           </Title>
         </Head>
         <Body>
-          PHOTO HERE
+          <Content>
+            ARROW
+          </Content>
+          <Content>
+            PHOTO HERE
+          </Content>
+          <Content>
+            ARROW
+          </Content>
         </Body>
         <Footer>
-          DESCRIPTION HERE
+          <Description>
+            VERIFIED
+          </Description>
+          <Description>
+            DESCRIPTION HERE
+          </Description>
         </Footer>
       </Window>
     )
