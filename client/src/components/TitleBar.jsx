@@ -44,7 +44,7 @@ const TitleBar = (props) => (
       <Star>&#9733;</Star>
       <Nested><b>{props.listing.rating}</b></Nested>
       <Nested>({props.listing.totalratings}) ·</Nested>
-      {<Nested>i Superhost ·</Nested>}
+      <Nested>i Superhost ·</Nested>
       <Nested>{props.listing.location}</Nested>
       <Nested />
       <Nested>
