@@ -10,7 +10,7 @@ const property = {
   rating: 4.33,
   totalratings: 786,
   superhost: false,
-  location: 'Oakland, California, United States',
+  location: 'Oakland, California',
   saved: false,
   photos: [
     {
@@ -26,5 +26,20 @@ describe('TitleBar Component', () => {
   it('Should render TitleBar component', () => {
     const wrapper = shallow(<TitleBar listing={property} />);
     expect(wrapper.exists()).toBe(true);
+  });
+
+  it('Displays the name of the property', () => {
+    const wrapper = shallow(<TitleBar listing={property} />);
+    expect(wrapper.contains('Affordable Flat')).toBe(true);
+  });
+
+  it('Displays the rating', () => {
+    const wrapper = shallow(<TitleBar listing={property} />);
+    expect(wrapper.contains(4.33)).toBe(true);
+  });
+
+  it('Displays the location', () => {
+    const wrapper = shallow(<TitleBar listing={property} />);
+    expect(wrapper.contains('Oakland, California')).toBe(true);
   });
 });

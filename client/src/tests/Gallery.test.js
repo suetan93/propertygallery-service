@@ -42,4 +42,9 @@ describe('TitleBar Component', () => {
     const wrapper = shallow(<Gallery images={images} />);
     expect(wrapper.exists()).toBe(true);
   });
+
+  // it('Should display an image', () => {
+  //   const wrapper = shallow(<Gallery images={images} />);
+  //   expect(wrapper.contains('')).toBe(true);
+  // });
 });
