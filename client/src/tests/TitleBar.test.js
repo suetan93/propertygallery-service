@@ -3,6 +3,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import TitleBar from '../components/TitleBar';
+import Arrow from '../components/ArrowIcon';
+import Heart from '../components/HeartIcon';
 
 const property = {
   _id: 7,
@@ -41,5 +43,15 @@ describe('TitleBar Component', () => {
   it('Displays the location', () => {
     const wrapper = shallow(<TitleBar listing={property} />);
     expect(wrapper.contains('Oakland, California')).toBe(true);
+  });
+
+  it('Should contain Arrow Component', () => {
+    const wrapper = shallow(<TitleBar listing={property} />);
+    expect(wrapper.containsMatchingElement(<Arrow />)).toBe(true);
+  });
+
+  it('Should contain Heart Component', () => {
+    const wrapper = shallow(<TitleBar listing={property} />);
+    expect(wrapper.containsMatchingElement(<Heart />)).toBe(true);
   });
 });
