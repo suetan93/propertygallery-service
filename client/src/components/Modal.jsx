@@ -11,7 +11,7 @@ const Window = styled.div`
   width: 100%;
   height: 100%;
   margin-top: -29em;
-  grid-template-rows: 10% 70% 20%;
+  grid-template-rows: 10% 65% 25%;
   font-family: Circular, -apple-system, system-ui, Roboto, "Helvetica Neue", sans-serif;
   font-size: 14px;
 `;
@@ -23,9 +23,53 @@ const Head = styled.div`
 `;
 
 const Title = styled.div`
+  border: 1px dashed green;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+`;
+
+const CloseButton = styled.button`
+  font-family: Circular, -apple-system, system-ui, Roboto, "Helvetica Neue", sans-serif;
+  font-size: 13px;
+  font-weight: 450;
+  border-radius: 7px;
+  height: 30px;
+  width: 80px;
+  border: hidden;
+  background-color: #e5e5e5;
+`;
+
+const Counter = styled.div`
   border: 1px dashed blue;
   display: flex;
   align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+`;
+
+const HeartDiv = styled.div`
+  border: 1px dashed red;
+  border-radius: 40px;
+  display: flex;
+  height: 27px;
+  padding-top: 1px;
+  padding-left: 4px;
+  align-items: center;
+  justify-content: center;
+`;
+
+const ArrowDiv = styled.div`
+  border: 1px dashed red;
+  border-radius: 40px;
+  display: flex;
+  height: 27px;
+  padding-bottom: 1px;
+  padding-left: 4px;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Body = styled.div`
@@ -40,24 +84,20 @@ const Content = styled.div`
   height: 100%;
   text-align: center;
   display: table;
-  transform: translateX(-${props => props.translate}px);
-  transition: transform ease-out ${props => props.transition};
-  width: ${props => props.width}px;
-
 `;
 
 const Left = styled.div`
   display: table-cell;
   text-align: left;
   vertical-align: middle;
-  padding: 15px
+  padding: 5px;
 `;
 
 const Right = styled.div`
   display: table-cell;
   text-align: right;
   vertical-align: middle;
-  padding: 15px
+  padding: 15px;
 `;
 
 const Img = styled.img`
@@ -66,8 +106,9 @@ const Img = styled.img`
 
 const Footer = styled.div`
   display: grid;
-  grid-template-rows: 15% 85%;
+  grid-template-rows: 20% 80%;
   border: 1px dashed red;
+  height: 100%;
 `;
 
 const Description = styled.div`
@@ -93,13 +134,14 @@ const LeftArrow = styled.svg`
   width: 12px;
   stroke: currentcolor;
   stroke-width: 5.33333;
-  overflow: visible;">
+  overflow: visible;
 `;
 
-const Button = styled.button`
-    border: 1px solid black;
-    border-radius: 15px;
-    background: white;
+const ArrowButton = styled.button`
+  border: 1px solid #A9A9A9;
+  border-radius: 25px;
+  background: white;
+  padding: 14px;
 `;
 
 class Modal extends React.Component {
@@ -141,27 +183,28 @@ class Modal extends React.Component {
           <Window>
             <Head>
               <Title>
-                <button type="button" onClick={this.props.toggleModal}>X Close</button>
+                <CloseButton type="button" onClick={this.props.toggleModal}>X &nbsp; Close</CloseButton>
               </Title>
               <Title>
+                <Counter>
                 {currentIndex + 1 }/{photoSet.length}
+                </Counter>
               </Title>
               <Title>
                 <Arrow />
-                &nbsp;
                 <Heart />
               </Title>
             </Head>
             <Body>
               <Content>
                 <Left>
-                  <Button onClick={this.previous}>
+                  <ArrowButton onClick={this.previous}>
                     <LeftArrow aria-hidden="true" role="presentation" focusable="false" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
                       <g fill="none">
                         <path d="m20 28-11.29289322-11.2928932c-.39052429-.3905243-.39052429-1.0236893 0-1.4142136l11.29289322-11.2928932" />
                       </g>
                     </LeftArrow>
-                  </Button>
+                  </ArrowButton>
                 </Left>
               </Content>
               <Content>
@@ -169,13 +212,13 @@ class Modal extends React.Component {
               </Content>
               <Content>
                 <Right>
-                  <button type="button" onClick={this.next}>
+                  <ArrowButton onClick={this.next}>
                     <RightArrow aria-hidden="true" role="presentation" focusable="false" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
                       <g fill="none">
                         <path d="m12 4 11.2928932 11.2928932c.3905243.3905243.3905243 1.0236893 0 1.4142136l-11.2928932 11.2928932" />
                       </g>
                     </RightArrow>
-                  </button>
+                  </ArrowButton>
                 </Right>
               </Content>
             </Body>
