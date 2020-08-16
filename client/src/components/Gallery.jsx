@@ -50,7 +50,7 @@ const bottomRight = {
 const Gallery = (props) => (
   <PhotoBox>
     <MainPhoto>
-      <img src={`${props.images[0].url}`} alt="" style={left} />
+      <img src={`${props.images[0].url}`} alt="" style={left}/>
     </MainPhoto>
     <div id="Photo2" className="image">
       <img src={`${props.images[1].url}`} alt="" style={mid} />
@@ -64,7 +64,7 @@ const Gallery = (props) => (
     <div id="Photo5" className="image">
       <img src={`${props.images[4].url}`} alt="" style={bottomRight} />
       <ButtonDiv>
-        <button type="button">Show all photos</button>
+        <button type="button" onClick={props.toggleModal}>Show all photos</button>
       </ButtonDiv>
     </div>
   </PhotoBox>
