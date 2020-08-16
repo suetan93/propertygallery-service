@@ -1,3 +1,4 @@
+/* eslint-disable arrow-body-style */
 import React from 'react';
 import styled from 'styled-components';
 import Arrow from './ArrowIcon.jsx';
@@ -32,11 +33,27 @@ const Body = styled.div`
   border: 1px dashed black;
   grid-template-columns: 1fr 5fr 1fr;
 `;
+
 const Content = styled.div`
   border: 1px dashed black;
   width: 100%;
   height: 100%;
   text-align: center;
+  display: table;
+`;
+
+const Left = styled.div`
+  display: table-cell;
+  text-align: left;
+  vertical-align: middle;
+  padding: 15px
+`;
+
+const Right = styled.div`
+  display: table-cell;
+  text-align: right;
+  vertical-align: middle;
+  padding: 15px
 `;
 
 const Img = styled.img`
@@ -52,6 +69,7 @@ const Footer = styled.div`
 const Description = styled.div`
   border: 1px dashed red;
   text-align: center;
+  height: 100%;
 `;
 
 const RightArrow = styled.svg`
@@ -74,58 +92,68 @@ const LeftArrow = styled.svg`
   overflow: visible;">
 `;
 
-const Modal = (props) => (
-  <div>
-    {props.showModal ? (
-      <Window>
-        <Head>
-          <Title>
-            <button type="button" onClick={props.toggleModal}>X Close</button>
-          </Title>
-          <Title>
-            1/ {props.images.length}
-          </Title>
-          <Title>
-            <Arrow />
-            &nbsp;
-            <Heart />
-          </Title>
-        </Head>
-        <Body>
-          <Content>
-            <button type="button">
-              <LeftArrow aria-hidden="true" role="presentation" focusable="false" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                <g fill="none">
-                  <path d="m20 28-11.29289322-11.2928932c-.39052429-.3905243-.39052429-1.0236893 0-1.4142136l11.29289322-11.2928932" />
-                </g>
-              </LeftArrow>
-            </button>
-          </Content>
-          <Content>
-              <Img src={`${props.images[2].url}`} alt="" />
-          </Content>
-          <Content>
-            <button type="button">
-              <RightArrow aria-hidden="true" role="presentation" focusable="false" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                <g fill="none">
-                  <path d="m12 4 11.2928932 11.2928932c.3905243.3905243.3905243 1.0236893 0 1.4142136l-11.2928932 11.2928932" />
-                </g>
-              </RightArrow>
-            </button>
-          </Content>
-        </Body>
-        <Footer>
-          <Description>
-            {props.images[2].verified ? 'Verified' : null}
-          </Description>
-          <Description>
-            {props.images[2].caption}
-          </Description>
-        </Footer>
-      </Window>
-    )
-      : null}
-  </div>
-);
+const Modal = (props) => {
+  // let photos = props.images;
+  // let current = props.images
+
+
+  return (
+    <div>
+      {props.showModal ? (
+        <Window>
+          <Head>
+            <Title>
+              <button type="button" onClick={props.toggleModal}>X Close</button>
+            </Title>
+            <Title>
+              1/ {props.images.length}
+            </Title>
+            <Title>
+              <Arrow />
+              &nbsp;
+              <Heart />
+            </Title>
+          </Head>
+          <Body>
+            <Content>
+              <Left>
+                <button type="button">
+                  <LeftArrow aria-hidden="true" role="presentation" focusable="false" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="none">
+                      <path d="m20 28-11.29289322-11.2928932c-.39052429-.3905243-.39052429-1.0236893 0-1.4142136l11.29289322-11.2928932" />
+                    </g>
+                  </LeftArrow>
+                </button>
+              </Left>
+            </Content>
+            <Content>
+                <Img src={`${props.images[2].url}`} alt="" />
+            </Content>
+            <Content>
+              <Right>
+                <button type="button">
+                  <RightArrow aria-hidden="true" role="presentation" focusable="false" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="none">
+                      <path d="m12 4 11.2928932 11.2928932c.3905243.3905243.3905243 1.0236893 0 1.4142136l-11.2928932 11.2928932" />
+                    </g>
+                  </RightArrow>
+                </button>
+              </Right>
+            </Content>
+          </Body>
+          <Footer>
+            <Description>
+              {props.images[2].verified ? 'Verified' : null}
+            </Description>
+            <Description>
+              {props.images[2].caption}
+            </Description>
+          </Footer>
+        </Window>
+      )
+        : null}
+    </div>
+  )
+};
 
 export default Modal;
