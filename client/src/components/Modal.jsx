@@ -11,7 +11,7 @@ const Window = styled.div`
   width: 100%;
   height: 100%;
   margin-top: -29em;
-  grid-template-rows: 10% 60% 30%;
+  grid-template-rows: 10% 70% 20%;
   font-family: Circular, -apple-system, system-ui, Roboto, "Helvetica Neue", sans-serif;
   font-size: 14px;
 `;
