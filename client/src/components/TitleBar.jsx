@@ -69,7 +69,7 @@ const Button = styled.button`
   align-items: center;
   justify-content: center;
 
-  &:hover {
+  :hover {
     background-color: #f5f5f5;
   }
 `;

@@ -11,6 +11,7 @@ class Header extends React.Component {
       property: {},
       images: [],
       showModal: false,
+      saved: false,
     };
 
     this.updateState = this.updateState.bind(this);

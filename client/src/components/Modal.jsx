@@ -31,6 +31,15 @@ const Title = styled.div`
   width: 100%;
 `;
 
+const IconsDiv = styled.div`
+  border: 1px dashed green;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  width: 350px;
+`;
+
 const CloseButton = styled.button`
   font-family: Circular, -apple-system, system-ui, Roboto, "Helvetica Neue", sans-serif;
   font-size: 13px;
@@ -51,26 +60,16 @@ const Counter = styled.div`
   width: 100%;
 `;
 
-const HeartDiv = styled.div`
-  border: 1px dashed red;
-  border-radius: 40px;
-  display: flex;
-  height: 27px;
-  padding-top: 1px;
-  padding-left: 4px;
-  align-items: center;
-  justify-content: center;
-`;
+const IconButtons = styled.button`
+  border: none;
+  border-radius: 28px;
+  background-color: #fff;
+  width: 30px;
+  padding: 7px;
 
-const ArrowDiv = styled.div`
-  border: 1px dashed red;
-  border-radius: 40px;
-  display: flex;
-  height: 27px;
-  padding-bottom: 1px;
-  padding-left: 4px;
-  align-items: center;
-  justify-content: center;
+  :hover {
+    background-color: #f5f5f5;
+  }
 `;
 
 const Body = styled.div`
@@ -192,10 +191,15 @@ class Modal extends React.Component {
                 {currentIndex + 1}/{photoSet.length}
                 </Counter>
               </Title>
-              <Title align="right">
-                <Arrow />
-                <Heart />
-              </Title>
+              <IconsDiv>
+                <IconButtons>
+                  <Arrow />
+                </IconButtons>
+                &nbsp;
+                <IconButtons>
+                  <Heart />
+                </IconButtons>
+              </IconsDiv>
             </Head>
             <Body>
               <Content>
