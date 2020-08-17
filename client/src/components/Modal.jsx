@@ -41,6 +41,10 @@ const CloseButton = styled.button`
   width: 80px;
   border: hidden;
   background-color: #e5e5e5;
+  :hover {
+    background-color: #ccc;
+    cursor: pointer;
+  }
 `;
 
 const Counter = styled.div`
@@ -65,6 +69,7 @@ const IconButtons = styled.button`
 
   :hover {
     background-color: #f5f5f5;
+    cursor: pointer;
   }
 `;
 
@@ -138,6 +143,10 @@ const ArrowButton = styled.button`
   border-radius: 25px;
   background: white;
   padding: 14px;
+  :hover {
+    background-color: #f5f5f5;
+    cursor: pointer;
+  }
 `;
 
 class Modal extends React.Component {
@@ -192,7 +201,7 @@ class Modal extends React.Component {
                   <Arrow />
                 </IconButtons>
                 &nbsp;
-                <IconButtons>
+                <IconButtons onClick={this.props.toggleSaved}>
                   <Heart />
                 </IconButtons>
               </IconsDiv>

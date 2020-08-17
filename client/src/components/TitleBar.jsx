@@ -71,6 +71,7 @@ const Button = styled.button`
 
   :hover {
     background-color: #f5f5f5;
+    cursor: pointer;
   }
 `;
 
@@ -91,7 +92,7 @@ const TitleBar = (props) => (
         </Button>
       </Nested>
       <Nested>
-        <Button>
+        <Button onClick={props.toggleSaved}>
           <Heart />
           Save
         </Button>

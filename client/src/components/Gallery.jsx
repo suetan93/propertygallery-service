@@ -20,6 +20,7 @@ const Button = styled.button`
   font-weight: 450;
   :hover {
     background-color: #fafafa;
+    cursor: pointer;
   }
 `;
 
@@ -38,7 +39,7 @@ const MainPhoto = styled.div`
 `;
 
 const Img = styled.img`
-  &:hover {
+  :hover {
     filter: #f5f5f5;
   }
 `;

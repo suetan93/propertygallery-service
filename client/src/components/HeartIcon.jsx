@@ -12,7 +12,7 @@ const Svg = styled.svg`
   margin-right: 5px;
 `;
 
-const Heart = () => (
+const Heart = (props) => (
   <Svg
     aria-hidden="true"
     role="presentation"
