@@ -14,6 +14,7 @@ const Window = styled.div`
   grid-template-rows: 10% 65% 25%;
   font-family: Circular, -apple-system, system-ui, Roboto, "Helvetica Neue", sans-serif;
   font-size: 14px;
+  transition: all 0.3s ease-out;
 `;
 
 const Head = styled.div`
@@ -183,14 +184,15 @@ class Modal extends React.Component {
           <Window>
             <Head>
               <Title>
-                <CloseButton type="button" onClick={this.props.toggleModal}>X &nbsp; Close</CloseButton>
+                <CloseButton type="button" onClick={this.props.toggleModal}>X &nbsp; Close
+                </CloseButton>
               </Title>
               <Title>
                 <Counter>
-                {currentIndex + 1 }/{photoSet.length}
+                {currentIndex + 1}/{photoSet.length}
                 </Counter>
               </Title>
-              <Title>
+              <Title align="right">
                 <Arrow />
                 <Heart />
               </Title>

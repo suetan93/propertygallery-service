@@ -4,9 +4,23 @@ import styled from 'styled-components';
 const ButtonDiv = styled.div`
   position: relative;
   margin-top: -3.5em;
-  margin-left: 7em;
-  width: 111px;
+  margin-left: 6em;
+  width: 123px;
   border: 1px dashed red;
+`;
+
+const Button = styled.button`
+  border: 1px solid black;
+  border-radius: 7px;
+  background-color: white;
+  width: 100%;
+  padding: 7px;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+  font-size: 12px;
+  font-weight: 450;
+  &:hover {
+    background-color: #fafafa;
+  }
 `;
 
 const PhotoBox = styled.div`
@@ -21,6 +35,12 @@ const PhotoBox = styled.div`
 
 const MainPhoto = styled.div`
    grid-row: 1 / span 2;
+`;
+
+const Img = styled.img`
+  &:hover {
+    filter: #f5f5f5;
+  }
 `;
 
 const left = {
@@ -52,7 +72,7 @@ const Gallery = (props) => (
     <MainPhoto>
       <img src={`${props.images[0].url}`} alt="" style={left}/>
     </MainPhoto>
-    <div id="Photo2" className="image">
+    <div>
       <img src={`${props.images[1].url}`} alt="" style={mid} />
     </div>
     <div id="Photo3" className="image">
@@ -64,7 +84,7 @@ const Gallery = (props) => (
     <div id="Photo5" className="image">
       <img src={`${props.images[4].url}`} alt="" style={bottomRight} />
       <ButtonDiv>
-        <button type="button" onClick={props.toggleModal}>Show all photos</button>
+        <Button onClick={props.toggleModal}>Show all photos</Button>
       </ButtonDiv>
     </div>
   </PhotoBox>
