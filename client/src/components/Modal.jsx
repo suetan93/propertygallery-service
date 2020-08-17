@@ -41,6 +41,7 @@ const CloseButton = styled.button`
   width: 80px;
   border: hidden;
   background-color: #e5e5e5;
+  outline: none;
   :hover {
     background-color: #ccc;
     cursor: pointer;
@@ -66,6 +67,7 @@ const IconButtons = styled.button`
   background-color: #fff;
   width: 30px;
   padding: 7px;
+  outline: none;
 
   :hover {
     background-color: #f5f5f5;
@@ -143,6 +145,7 @@ const ArrowButton = styled.button`
   border-radius: 25px;
   background: white;
   padding: 14px;
+  outline: none;
   :hover {
     background-color: #f5f5f5;
     cursor: pointer;
@@ -187,7 +190,6 @@ class Modal extends React.Component {
         {this.props.showModal ? (
           <Window>
             <Head>
-
               <CloseDiv>
                 <CloseButton type="button" onClick={this.props.toggleModal}>
                   X &nbsp; Close
@@ -202,7 +204,7 @@ class Modal extends React.Component {
                 </IconButtons>
                 &nbsp;
                 <IconButtons onClick={this.props.toggleSaved}>
-                  <Heart />
+                  <Heart saved={this.props.savedState} />
                 </IconButtons>
               </IconsDiv>
             </Head>

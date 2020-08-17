@@ -18,6 +18,7 @@ const Button = styled.button`
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
   font-size: 12px;
   font-weight: 450;
+  outline: none;
   :hover {
     background-color: #fafafa;
     cursor: pointer;

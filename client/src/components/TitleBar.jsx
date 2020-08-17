@@ -68,6 +68,7 @@ const Button = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+  outline: none;
 
   :hover {
     background-color: #f5f5f5;
@@ -93,8 +94,8 @@ const TitleBar = (props) => (
       </Nested>
       <Nested>
         <Button onClick={props.toggleSaved}>
-          <Heart />
-          Save
+          <Heart saved={props.savedState} />
+          {props.savedState ? 'Saved' : 'Save'}
         </Button>
       </Nested>
     </Grid>
