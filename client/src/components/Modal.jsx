@@ -18,26 +18,18 @@ const Window = styled.div`
 `;
 
 const Head = styled.div`
-  display: grid;
-  border: 1px dashed blue;
-  grid-template-columns: 1fr 1fr 1fr;
-`;
-
-const Title = styled.div`
-  border: 1px dashed green;
   display: flex;
+  border: 1px dashed blue;
   align-items: center;
+  justify-content: space-around;
   height: 100%;
   width: 100%;
 `;
 
-const IconsDiv = styled.div`
+const CloseDiv = styled.div`
   border: 1px dashed green;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  height: 100%;
-  width: 350px;
+  flex-grow: 1;
+  padding-left: 10px;
 `;
 
 const CloseButton = styled.button`
@@ -53,11 +45,15 @@ const CloseButton = styled.button`
 
 const Counter = styled.div`
   border: 1px dashed blue;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
+  text-align: center;
+  flex-grow: 2;
+`;
+
+const IconsDiv = styled.div`
+  border: 1px dashed green;
+  flex-grow: 1;
+  text-align: right;
+  padding-right: 15px;
 `;
 
 const IconButtons = styled.button`
@@ -182,15 +178,15 @@ class Modal extends React.Component {
         {this.props.showModal ? (
           <Window>
             <Head>
-              <Title>
-                <CloseButton type="button" onClick={this.props.toggleModal}>X &nbsp; Close
+
+              <CloseDiv>
+                <CloseButton type="button" onClick={this.props.toggleModal}>
+                  X &nbsp; Close
                 </CloseButton>
-              </Title>
-              <Title>
-                <Counter>
+              </CloseDiv>
+              <Counter>
                 {currentIndex + 1}/{photoSet.length}
-                </Counter>
-              </Title>
+              </Counter>
               <IconsDiv>
                 <IconButtons>
                   <Arrow />
@@ -214,7 +210,7 @@ class Modal extends React.Component {
                 </Left>
               </Content>
               <Content>
-                  <Img src={`${photoSet[currentIndex].url}`} alt="" />
+                <Img src={`${photoSet[currentIndex].url}`} alt="" />
               </Content>
               <Content>
                 <Right>
