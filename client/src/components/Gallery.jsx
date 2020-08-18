@@ -37,11 +37,16 @@ const PhotoBox = styled.div`
 
 const MainPhoto = styled.div`
    grid-row: 1 / span 2;
+   :hover {
+    filter: contrast(0.7);
+    transition: 0.4s ease-in-out;
+  }
 `;
 
-const Img = styled.img`
+const ImgDiv = styled.div`
   :hover {
-    filter: #f5f5f5;
+    filter: contrast(0.7);
+    transition: 0.4s ease-in-out;
   }
 `;
 
@@ -74,21 +79,21 @@ const Gallery = (props) => (
     <MainPhoto>
       <img src={`${props.images[0].url}`} alt="" style={left}/>
     </MainPhoto>
-    <div>
+    <ImgDiv>
       <img src={`${props.images[1].url}`} alt="" style={mid} />
-    </div>
-    <div id="Photo3" className="image">
+    </ImgDiv>
+    <ImgDiv>
       <img src={`${props.images[2].url}`} alt="" style={topRight} />
-    </div>
-    <div id="Photo4" className="image">
+    </ImgDiv>
+    <ImgDiv>
       <img src={`${props.images[3].url}`} alt="" style={mid} />
-    </div>
-    <div id="Photo5" className="image">
+    </ImgDiv>
+    <ImgDiv>
       <img src={`${props.images[4].url}`} alt="" style={bottomRight} />
       <ButtonDiv>
         <Button onClick={props.toggleModal}>Show all photos</Button>
       </ButtonDiv>
-    </div>
+    </ImgDiv>
   </PhotoBox>
 );
 
