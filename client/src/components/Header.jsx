@@ -21,7 +21,8 @@ class Header extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/property/26')
+    const id = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
+    axios.get(`/property/${id}`)
       .then(this.updateState)
       .catch(console.log);
   }

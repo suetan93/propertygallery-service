@@ -7,7 +7,7 @@ const ButtonDiv = styled.div`
   margin-top: -3.5em;
   margin-left: 6em;
   width: 123px;
-  border: 1px dashed red;
+  border: none;
 `;
 
 const Button = styled.button`
@@ -21,7 +21,7 @@ const Button = styled.button`
   font-weight: 450;
   outline: none;
   :hover {
-    background-color: #fafafa;
+    background-color: #f5f5f5;
     cursor: pointer;
   }
 `;
@@ -45,7 +45,7 @@ const MainPhoto = styled.div`
   }
 `;
 
-const ImgDiv = styled.div`
+const Img = styled.img`
   :hover {
     filter: contrast(0.7);
     transition: 0.4s ease-in-out;
@@ -82,21 +82,21 @@ const Gallery = (props) => (
     <MainPhoto onClick={props.toggleModal}>
       <img src={`${props.images[0].url}`} alt="" style={left}/>
     </MainPhoto>
-    <ImgDiv onClick={props.toggleModal}>
-      <img src={`${props.images[1].url}`} alt="" style={mid} />
-    </ImgDiv>
-    <ImgDiv onClick={props.toggleModal}>
-      <img src={`${props.images[2].url}`} alt="" style={topRight} />
-    </ImgDiv>
-    <ImgDiv onClick={props.toggleModal}>
-      <img src={`${props.images[3].url}`} alt="" style={mid} />
-    </ImgDiv>
-    <ImgDiv onClick={props.toggleModal}>
-      <img src={`${props.images[4].url}`} alt="" style={bottomRight} />
+    <div onClick={props.toggleModal}>
+      <Img src={`${props.images[1].url}`} alt="" style={mid} />
+    </div>
+    <div onClick={props.toggleModal}>
+      <Img src={`${props.images[2].url}`} alt="" style={topRight} />
+    </div>
+    <div onClick={props.toggleModal}>
+      <Img src={`${props.images[3].url}`} alt="" style={mid} />
+    </div>
+    <div onClick={props.toggleModal}>
+      <Img src={`${props.images[4].url}`} alt="" style={bottomRight} />
       <ButtonDiv>
         <Button onClick={props.toggleModal}>Show all photos</Button>
       </ButtonDiv>
-    </ImgDiv>
+    </div>
   </PhotoBox>
 );
 
