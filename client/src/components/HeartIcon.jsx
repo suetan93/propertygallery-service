@@ -7,7 +7,7 @@ const Svg = styled.svg`
   height: 16px;
   width: 16px;
   stroke: ${prop => prop.saved ? '#ff385c' : 'currentcolor'};
-  stroke-width: 3;s
+  stroke-width: 3;
   overflow: visible;
   margin-right: 5px;
 
