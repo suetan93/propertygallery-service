@@ -30,6 +30,7 @@ const CloseDiv = styled.div`
   border: 1px dashed green;
   flex-grow: 1;
   padding-left: 10px;
+
 `;
 
 const CloseButton = styled.button`
@@ -59,6 +60,7 @@ const IconsDiv = styled.div`
   flex-grow: 1;
   text-align: right;
   padding-right: 15px;
+
 `;
 
 const IconButtons = styled.button`
@@ -76,9 +78,10 @@ const IconButtons = styled.button`
 `;
 
 const Body = styled.div`
-  display: grid;
+  display: flex;
   border: 1px dashed black;
-  grid-template-columns: 1fr 5fr 1fr;
+  height: 100%;
+  width: 100%;
 `;
 
 const Content = styled.div`
@@ -94,13 +97,17 @@ const Left = styled.div`
   text-align: left;
   vertical-align: middle;
   padding: 5px;
+  width: 100%;
+  height: 100%;
 `;
 
 const Right = styled.div`
   display: table-cell;
   text-align: right;
   vertical-align: middle;
-  padding: 15px;
+  padding-right: 20px;
+  width: 100%;
+  height: 100%;
 `;
 
 const Img = styled.img`
@@ -220,9 +227,7 @@ class Modal extends React.Component {
                   </ArrowButton>
                 </Left>
               </Content>
-              <Content>
-                <Img src={`${photoSet[currentIndex].url}`} alt="" />
-              </Content>
+                <Img src={`${photoSet[currentIndex].url}`} />
               <Content>
                 <Right>
                   <ArrowButton onClick={this.next}>
