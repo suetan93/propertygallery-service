@@ -10,23 +10,24 @@ const Window = styled.div`
   position: fixed;
   width: 100%;
   height: ${prop => prop.showModal ? '100%' : 0 };
-  margin-top: -29.5em;
-  grid-template-rows: 10% 65% 25%;
+  margin-top: -29em;
+  grid-template-rows: 15% 60% 25%;
   font-family: Circular, -apple-system, system-ui, Roboto, "Helvetica Neue", sans-serif;
   font-size: 14px;
 `;
 
 const Head = styled.div`
   display: flex;
-  border: 1px dashed blue;
+  border: none;
   align-items: center;
   justify-content: space-around;
   height: 100%;
   width: 100%;
+  padding-top: 10px;
 `;
 
 const CloseDiv = styled.div`
-  border: 1px dashed green;
+  border: none;
   flex-grow: 1;
   padding-left: 10px;
 
@@ -49,13 +50,13 @@ const CloseButton = styled.button`
 `;
 
 const Counter = styled.div`
-  border: 1px dashed blue;
+  border: none;
   text-align: center;
   flex-grow: 2;
 `;
 
 const IconsDiv = styled.div`
-  border: 1px dashed green;
+  border: none;
   flex-grow: 1;
   text-align: right;
   padding-right: 15px;
@@ -78,13 +79,13 @@ const IconButtons = styled.button`
 
 const Body = styled.div`
   display: flex;
-  border: 1px dashed black;
+  border: none;
   height: 100%;
   width: 100%;
 `;
 
 const Content = styled.div`
-  border: 1px dashed black;
+  border: none;
   width: 100%;
   height: 100%;
   text-align: center;
@@ -116,12 +117,12 @@ const Img = styled.img`
 const Footer = styled.div`
   display: grid;
   grid-template-rows: 20% 80%;
-  border: 1px dashed red;
+  border: none;
   height: 100%;
 `;
 
 const Description = styled.div`
-  border: 1px dashed red;
+  border: none;
   text-align: center;
   height: 100%;
 `;

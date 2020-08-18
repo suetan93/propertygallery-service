@@ -57,7 +57,7 @@ class Header extends React.Component {
           savedState={saved}
           alert={this.alert}
         />
-        <br />
+
         {images.length > 0 ? (
           <Gallery
             images={images}

@@ -30,7 +30,7 @@ const PhotoBox = styled.div`
   display: grid;
   margin: 0 auto;
   width: 1000px;
-  border: 1px dashed red;
+  border: none;
   grid-template-columns: 2fr 1fr 1fr;
   grid-template-rows: 150px 150px;
   gap: 5px;
@@ -41,6 +41,7 @@ const MainPhoto = styled.div`
    :hover {
     filter: contrast(0.7);
     transition: 0.4s ease-in-out;
+    cursor: pointer;
   }
 `;
 
@@ -48,6 +49,7 @@ const ImgDiv = styled.div`
   :hover {
     filter: contrast(0.7);
     transition: 0.4s ease-in-out;
+    cursor: pointer;
   }
 `;
 
@@ -77,19 +79,19 @@ const bottomRight = {
 
 const Gallery = (props) => (
   <PhotoBox>
-    <MainPhoto>
+    <MainPhoto onClick={props.toggleModal}>
       <img src={`${props.images[0].url}`} alt="" style={left}/>
     </MainPhoto>
-    <ImgDiv>
+    <ImgDiv onClick={props.toggleModal}>
       <img src={`${props.images[1].url}`} alt="" style={mid} />
     </ImgDiv>
-    <ImgDiv>
+    <ImgDiv onClick={props.toggleModal}>
       <img src={`${props.images[2].url}`} alt="" style={topRight} />
     </ImgDiv>
-    <ImgDiv>
+    <ImgDiv onClick={props.toggleModal}>
       <img src={`${props.images[3].url}`} alt="" style={mid} />
     </ImgDiv>
-    <ImgDiv>
+    <ImgDiv onClick={props.toggleModal}>
       <img src={`${props.images[4].url}`} alt="" style={bottomRight} />
       <ButtonDiv>
         <Button onClick={props.toggleModal}>Show all photos</Button>
