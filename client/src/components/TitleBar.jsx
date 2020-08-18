@@ -45,6 +45,9 @@ const Location = styled.div`
   align-items: center;
   border: 1px dashed;
 `;
+const A = styled.a`
+  color: #717171;
+`;
 
 const Star = styled.span`
   font-size: 12px;
@@ -84,10 +87,12 @@ const TitleBar = (props) => (
       <Nested><b>{props.listing.rating}</b></Nested>
       <GrayFont>({props.listing.totalratings}) ·</GrayFont>
       <GrayFont>i Superhost &nbsp;· </GrayFont>
-      <Location>{props.listing.location}</Location>
+      <Location>
+        <A href="https://www.airbnb.com/">{props.listing.location}</A>
+      </Location>
       <Nested />
       <Nested>
-        <Button>
+        <Button onClick={props.alert}>
           <Arrow />
           Share
         </Button>

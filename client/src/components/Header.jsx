@@ -17,6 +17,7 @@ class Header extends React.Component {
     this.updateState = this.updateState.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
     this.toggleSaved = this.toggleSaved.bind(this);
+    this.alert = this.alert.bind(this);
   }
 
   componentDidMount() {
@@ -39,6 +40,11 @@ class Header extends React.Component {
     this.setState({ saved: !this.state.saved });
   }
 
+  alert(e) {
+    e.preventDefault();
+    alert('Link copied!');
+  };
+
   render() {
     const { property, images, showModal, saved } = this.state;
 
@@ -49,6 +55,7 @@ class Header extends React.Component {
           listing={property}
           toggleSaved={this.toggleSaved}
           savedState={saved}
+          alert={this.alert}
         />
         <br />
         {images.length > 0 ? (
@@ -66,6 +73,7 @@ class Header extends React.Component {
             images={images}
             toggleSaved={this.toggleSaved}
             savedState={saved}
+            alert={this.alert}
           />
         ) : null}
       </div>

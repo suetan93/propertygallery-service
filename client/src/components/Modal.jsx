@@ -9,12 +9,11 @@ const Window = styled.div`
   background-color: white;
   position: fixed;
   width: 100%;
-  height: 100%;
-  margin-top: -29em;
+  height: ${prop => prop.showModal ? '100%' : 0 };
+  margin-top: -29.5em;
   grid-template-rows: 10% 65% 25%;
   font-family: Circular, -apple-system, system-ui, Roboto, "Helvetica Neue", sans-serif;
   font-size: 14px;
-  transition: all 0.3s ease-out;
 `;
 
 const Head = styled.div`
@@ -195,7 +194,7 @@ class Modal extends React.Component {
     return (
       <div>
         {this.props.showModal ? (
-          <Window>
+          <Window showModal={this.props.showModal}>
             <Head>
               <CloseDiv>
                 <CloseButton type="button" onClick={this.props.toggleModal}>
@@ -206,7 +205,7 @@ class Modal extends React.Component {
                 {currentIndex + 1}/{photoSet.length}
               </Counter>
               <IconsDiv>
-                <IconButtons>
+                <IconButtons onClick={this.props.alert}>
                   <Arrow />
                 </IconButtons>
                 &nbsp;

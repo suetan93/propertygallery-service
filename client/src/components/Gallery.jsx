@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const ButtonDiv = styled.div`
   position: relative;
+  margin: 0 auto;
   margin-top: -3.5em;
   margin-left: 6em;
   width: 123px;
