@@ -11,10 +11,12 @@ class Header extends React.Component {
       property: {},
       images: [],
       showModal: false,
+      saved: false,
     };
 
     this.updateState = this.updateState.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
+    this.toggleSaved = this.toggleSaved.bind(this);
   }
 
   componentDidMount() {
@@ -32,13 +34,22 @@ class Header extends React.Component {
     this.setState({ showModal: !this.state.showModal });
   }
 
+  toggleSaved(e) {
+    e.preventDefault();
+    this.setState({ saved: !this.state.saved });
+  }
+
   render() {
-    const { property, images, showModal } = this.state;
+    const { property, images, showModal, saved } = this.state;
 
     return (
       <div>
         <br />
-        <TitleBar listing={property} />
+        <TitleBar
+          listing={property}
+          toggleSaved={this.toggleSaved}
+          savedState={saved}
+        />
         <br />
         {images.length > 0 ? (
           <Gallery
@@ -53,6 +64,8 @@ class Header extends React.Component {
             showModal={showModal}
             toggleModal={this.toggleModal}
             images={images}
+            toggleSaved={this.toggleSaved}
+            savedState={saved}
           />
         ) : null}
       </div>

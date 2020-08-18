@@ -14,20 +14,22 @@ const Window = styled.div`
   grid-template-rows: 10% 65% 25%;
   font-family: Circular, -apple-system, system-ui, Roboto, "Helvetica Neue", sans-serif;
   font-size: 14px;
+  transition: all 0.3s ease-out;
 `;
 
 const Head = styled.div`
-  display: grid;
-  border: 1px dashed blue;
-  grid-template-columns: 1fr 1fr 1fr;
-`;
-
-const Title = styled.div`
-  border: 1px dashed green;
   display: flex;
+  border: 1px dashed blue;
   align-items: center;
+  justify-content: space-around;
   height: 100%;
   width: 100%;
+`;
+
+const CloseDiv = styled.div`
+  border: 1px dashed green;
+  flex-grow: 1;
+  padding-left: 10px;
 `;
 
 const CloseButton = styled.button`
@@ -39,37 +41,38 @@ const CloseButton = styled.button`
   width: 80px;
   border: hidden;
   background-color: #e5e5e5;
+  outline: none;
+  :hover {
+    background-color: #ccc;
+    cursor: pointer;
+  }
 `;
 
 const Counter = styled.div`
   border: 1px dashed blue;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
+  text-align: center;
+  flex-grow: 2;
 `;
 
-const HeartDiv = styled.div`
-  border: 1px dashed red;
-  border-radius: 40px;
-  display: flex;
-  height: 27px;
-  padding-top: 1px;
-  padding-left: 4px;
-  align-items: center;
-  justify-content: center;
+const IconsDiv = styled.div`
+  border: 1px dashed green;
+  flex-grow: 1;
+  text-align: right;
+  padding-right: 15px;
 `;
 
-const ArrowDiv = styled.div`
-  border: 1px dashed red;
-  border-radius: 40px;
-  display: flex;
-  height: 27px;
-  padding-bottom: 1px;
-  padding-left: 4px;
-  align-items: center;
-  justify-content: center;
+const IconButtons = styled.button`
+  border: none;
+  border-radius: 28px;
+  background-color: #fff;
+  width: 30px;
+  padding: 7px;
+  outline: none;
+
+  :hover {
+    background-color: #f5f5f5;
+    cursor: pointer;
+  }
 `;
 
 const Body = styled.div`
@@ -142,6 +145,11 @@ const ArrowButton = styled.button`
   border-radius: 25px;
   background: white;
   padding: 14px;
+  outline: none;
+  :hover {
+    background-color: #f5f5f5;
+    cursor: pointer;
+  }
 `;
 
 class Modal extends React.Component {
@@ -182,18 +190,23 @@ class Modal extends React.Component {
         {this.props.showModal ? (
           <Window>
             <Head>
-              <Title>
-                <CloseButton type="button" onClick={this.props.toggleModal}>X &nbsp; Close</CloseButton>
-              </Title>
-              <Title>
-                <Counter>
-                {currentIndex + 1 }/{photoSet.length}
-                </Counter>
-              </Title>
-              <Title>
-                <Arrow />
-                <Heart />
-              </Title>
+              <CloseDiv>
+                <CloseButton type="button" onClick={this.props.toggleModal}>
+                  X &nbsp; Close
+                </CloseButton>
+              </CloseDiv>
+              <Counter>
+                {currentIndex + 1}/{photoSet.length}
+              </Counter>
+              <IconsDiv>
+                <IconButtons>
+                  <Arrow />
+                </IconButtons>
+                &nbsp;
+                <IconButtons onClick={this.props.toggleSaved}>
+                  <Heart saved={this.props.savedState} />
+                </IconButtons>
+              </IconsDiv>
             </Head>
             <Body>
               <Content>
@@ -208,7 +221,7 @@ class Modal extends React.Component {
                 </Left>
               </Content>
               <Content>
-                  <Img src={`${photoSet[currentIndex].url}`} alt="" />
+                <Img src={`${photoSet[currentIndex].url}`} alt="" />
               </Content>
               <Content>
                 <Right>

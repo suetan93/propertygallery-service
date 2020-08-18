@@ -16,13 +16,31 @@ const Wrapper = styled.div`
 // use props in styled components for conditonal renderings
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: 15px 34px 45px 90px auto auto 77px 70px;
+  grid-template-columns: 15px 34px 45px 87px auto auto 77px 75px;
   grid-template-rows: 32px;
   line-height: 20px;
 `;
 
 const Nested = styled.div`
   font-size: 12px;
+  display: flex;
+  align-items: center;
+  border: 1px dashed;
+`;
+
+const GrayFont = styled.div`
+  font-size: 12px;
+  color: #717171;
+  display: flex;
+  align-items: center;
+  border: 1px dashed;
+`;
+
+const Location = styled.div`
+  font-size: 12px;
+  color: #717171;
+  font-weight: bold;
+  text-decoration: underline;
   display: flex;
   align-items: center;
   border: 1px dashed;
@@ -37,23 +55,48 @@ const Star = styled.span`
   border: 1px dashed;
 `;
 
+const Button = styled.button`
+  border: none;
+  border-radius: 5px;
+  background-color: #fff;
+  font-size: 12px;
+  font-weight: 550;
+  text-decoration: underline;
+  width: 67px;
+  height: 25px;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+
+  :hover {
+    background-color: #f5f5f5;
+    cursor: pointer;
+  }
+`;
+
 const TitleBar = (props) => (
   <Wrapper>
     {props.listing.name}
     <Grid>
       <Star>&#9733;</Star>
       <Nested><b>{props.listing.rating}</b></Nested>
-      <Nested>({props.listing.totalratings}) ·</Nested>
-      <Nested>i Superhost ·</Nested>
-      <Nested>{props.listing.location}</Nested>
+      <GrayFont>({props.listing.totalratings}) ·</GrayFont>
+      <GrayFont>i Superhost &nbsp;· </GrayFont>
+      <Location>{props.listing.location}</Location>
       <Nested />
       <Nested>
-        <Arrow />
-        Share
+        <Button>
+          <Arrow />
+          Share
+        </Button>
       </Nested>
       <Nested>
-        <Heart />
-        Save
+        <Button onClick={props.toggleSaved}>
+          <Heart saved={props.savedState} />
+          {props.savedState ? 'Saved' : 'Save'}
+        </Button>
       </Nested>
     </Grid>
   </Wrapper>
