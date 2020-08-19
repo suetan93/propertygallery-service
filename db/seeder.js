@@ -6,13 +6,15 @@ const adj = ['Beautiful', 'Oceanview', 'Nice', 'Charming', 'Private', 'Comfy', '
 
 const type = ['Apartment', 'Studio', 'Loft', 'Flat', 'Condo', 'House', 'Cabin', 'Unit', 'Suite', 'Cottage'];
 
+const end = ['w/ Free Parking', 'in the Heart of Downtown', 'in perfect location', '- Sleeps 4', 'with Balcony', 'close to Subway', 'with amazing sunset views'];
+
 const locations = ['London, England, United Kingdom', 'Kensington, England, United States', 'Honolulu, Hawaii, United States', 'Hilo, Hawaii, United States', 'Oakland, California, United States', 'San Francisco, California, United States', 'New York, United States', 'Ibiza, Balearic Islands, Spain', 'Ocho Rios, Jamaica', 'Miami, Florida, United States'];
 
 const listings = [];
 
 // eslint-disable-next-line no-plusplus
 for (let i = 0; i < 100; i++) {
-  const propName = `${adj[Math.floor(Math.random() * (9 - 0 + 1)) + 0]} ${type[Math.floor(Math.random() * (9 - 0 + 1)) + 0]}`;
+  const propName = `${adj[Math.floor(Math.random() * (9 - 0 + 1)) + 0]} ${type[Math.floor(Math.random() * (9 - 0 + 1)) + 0]} ${end[Math.floor(Math.random() * (6 - 0 + 1)) + 0]}`;
 
   const obj = {
     _id: i,

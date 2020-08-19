@@ -100,7 +100,7 @@ const Left = styled.div`
   display: table-cell;
   text-align: left;
   vertical-align: middle;
-  padding: 5px;
+  padding-left: 20px;
   width: 100%;
   height: 100%;
 `;
