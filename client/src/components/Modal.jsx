@@ -9,27 +9,28 @@ const Window = styled.div`
   background-color: white;
   position: fixed;
   width: 100%;
-  height: 100%;
+  height: ${prop => prop.showModal ? '100%' : 0 };
   margin-top: -29em;
-  grid-template-rows: 10% 65% 25%;
+  grid-template-rows: 15% 60% 25%;
   font-family: Circular, -apple-system, system-ui, Roboto, "Helvetica Neue", sans-serif;
   font-size: 14px;
-  transition: all 0.3s ease-out;
 `;
 
 const Head = styled.div`
   display: flex;
-  border: 1px dashed blue;
+  border: none;
   align-items: center;
   justify-content: space-around;
   height: 100%;
   width: 100%;
+  padding-top: 10px;
 `;
 
 const CloseDiv = styled.div`
-  border: 1px dashed green;
+  border: none;
   flex-grow: 1;
   padding-left: 10px;
+
 `;
 
 const CloseButton = styled.button`
@@ -49,16 +50,17 @@ const CloseButton = styled.button`
 `;
 
 const Counter = styled.div`
-  border: 1px dashed blue;
+  border: none;
   text-align: center;
   flex-grow: 2;
 `;
 
 const IconsDiv = styled.div`
-  border: 1px dashed green;
+  border: none;
   flex-grow: 1;
   text-align: right;
   padding-right: 15px;
+
 `;
 
 const IconButtons = styled.button`
@@ -76,13 +78,14 @@ const IconButtons = styled.button`
 `;
 
 const Body = styled.div`
-  display: grid;
-  border: 1px dashed black;
-  grid-template-columns: 1fr 5fr 1fr;
+  display: flex;
+  border: none;
+  height: 100%;
+  width: 100%;
 `;
 
 const Content = styled.div`
-  border: 1px dashed black;
+  border: none;
   width: 100%;
   height: 100%;
   text-align: center;
@@ -94,13 +97,17 @@ const Left = styled.div`
   text-align: left;
   vertical-align: middle;
   padding: 5px;
+  width: 100%;
+  height: 100%;
 `;
 
 const Right = styled.div`
   display: table-cell;
   text-align: right;
   vertical-align: middle;
-  padding: 15px;
+  padding-right: 20px;
+  width: 100%;
+  height: 100%;
 `;
 
 const Img = styled.img`
@@ -110,12 +117,12 @@ const Img = styled.img`
 const Footer = styled.div`
   display: grid;
   grid-template-rows: 20% 80%;
-  border: 1px dashed red;
+  border: none;
   height: 100%;
 `;
 
 const Description = styled.div`
-  border: 1px dashed red;
+  border: none;
   text-align: center;
   height: 100%;
 `;
@@ -188,7 +195,7 @@ class Modal extends React.Component {
     return (
       <div>
         {this.props.showModal ? (
-          <Window>
+          <Window showModal={this.props.showModal}>
             <Head>
               <CloseDiv>
                 <CloseButton type="button" onClick={this.props.toggleModal}>
@@ -199,7 +206,7 @@ class Modal extends React.Component {
                 {currentIndex + 1}/{photoSet.length}
               </Counter>
               <IconsDiv>
-                <IconButtons>
+                <IconButtons onClick={this.props.alert}>
                   <Arrow />
                 </IconButtons>
                 &nbsp;
@@ -220,9 +227,7 @@ class Modal extends React.Component {
                   </ArrowButton>
                 </Left>
               </Content>
-              <Content>
-                <Img src={`${photoSet[currentIndex].url}`} alt="" />
-              </Content>
+                <Img src={`${photoSet[currentIndex].url}`} />
               <Content>
                 <Right>
                   <ArrowButton onClick={this.next}>

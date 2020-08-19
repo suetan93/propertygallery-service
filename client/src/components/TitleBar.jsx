@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   margin: 0 auto;
   width: 1000px;
   height: 64px;
-  border: 1px dashed;
+  border: none;
   font-size: 26px;
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
   letter-spacing: normal;
@@ -16,16 +16,16 @@ const Wrapper = styled.div`
 // use props in styled components for conditonal renderings
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: 15px 34px 45px 87px auto auto 77px 75px;
+  grid-template-columns: 15px 30px 50px 87px auto auto 77px 75px;
   grid-template-rows: 32px;
   line-height: 20px;
 `;
 
-const Nested = styled.div`
+const Column = styled.div`
   font-size: 12px;
   display: flex;
   align-items: center;
-  border: 1px dashed;
+  border: none;
 `;
 
 const GrayFont = styled.div`
@@ -33,7 +33,7 @@ const GrayFont = styled.div`
   color: #717171;
   display: flex;
   align-items: center;
-  border: 1px dashed;
+  border: none;
 `;
 
 const Location = styled.div`
@@ -43,7 +43,11 @@ const Location = styled.div`
   text-decoration: underline;
   display: flex;
   align-items: center;
-  border: 1px dashed;
+  border: none;
+`;
+
+const A = styled.a`
+  color: #717171;
 `;
 
 const Star = styled.span`
@@ -52,7 +56,7 @@ const Star = styled.span`
   color: #ff385c;
   display: flex;
   align-items: center;
-  border: 1px dashed;
+  border: none;
 `;
 
 const Button = styled.button`
@@ -64,7 +68,7 @@ const Button = styled.button`
   text-decoration: underline;
   width: 67px;
   height: 25px;
-  padding: 2px;
+  padding: 3px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -80,24 +84,35 @@ const TitleBar = (props) => (
   <Wrapper>
     {props.listing.name}
     <Grid>
-      <Star>&#9733;</Star>
-      <Nested><b>{props.listing.rating}</b></Nested>
-      <GrayFont>({props.listing.totalratings}) ·</GrayFont>
-      <GrayFont>i Superhost &nbsp;· </GrayFont>
-      <Location>{props.listing.location}</Location>
-      <Nested />
-      <Nested>
-        <Button>
+      <Star>
+        &#9733;
+      </Star>
+      <Column>
+        <b>{props.listing.rating}</b>
+      </Column>
+      <GrayFont>
+        ({props.listing.totalratings}) &nbsp; ·
+      </GrayFont>
+      <GrayFont>
+        <img src="https://propertygallery.s3-us-west-1.amazonaws.com/superhost.jpg" alt="" style={{ height: 16, width: 12 }} />
+        Superhost &nbsp;·
+      </GrayFont>
+      <Location>
+        <A href="https://www.airbnb.com/">{props.listing.location}</A>
+      </Location>
+      <Column />
+      <Column>
+        <Button onClick={props.alert}>
           <Arrow />
           Share
         </Button>
-      </Nested>
-      <Nested>
+      </Column>
+      <Column>
         <Button onClick={props.toggleSaved}>
           <Heart saved={props.savedState} />
           {props.savedState ? 'Saved' : 'Save'}
         </Button>
-      </Nested>
+      </Column>
     </Grid>
   </Wrapper>
 );
