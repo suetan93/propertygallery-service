@@ -12,7 +12,7 @@ const listings = [];
 
 // eslint-disable-next-line no-plusplus
 for (let i = 0; i < 100; i++) {
-  const propName = `${adj[Math.floor(Math.random() * 10)]} ${type[Math.floor(Math.random() * 10)]}`;
+  const propName = `${adj[Math.floor(Math.random() * (9 - 0 + 1)) + 0]} ${type[Math.floor(Math.random() * (9 - 0 + 1)) + 0]}`;
 
   const obj = {
     _id: i,
@@ -20,9 +20,9 @@ for (let i = 0; i < 100; i++) {
     rating: faker.finance.amount(3, 5, 2),
     totalratings: faker.random.number({ min: 1, max: 800 }),
     superhost: faker.random.boolean(),
-    location: locations[Math.floor(Math.random() * 10)],
+    location: locations[Math.floor(Math.random() * (9 - 0 + 1)) + 0],
     saved: faker.random.boolean(),
-    photos: images[Math.floor(Math.random() * 4)],
+    photos: images[Math.floor(Math.random() * (3 - 0 + 1)) + 0],
   };
 
   listings.push(obj);
