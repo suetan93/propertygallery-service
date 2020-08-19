@@ -7,25 +7,35 @@ const Wrapper = styled.div`
   margin: 0 auto;
   width: 1000px;
   height: 64px;
-  border: none;
+  border: 1px dashed black;
   font-size: 26px;
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
   letter-spacing: normal;
 `;
 
 // use props in styled components for conditonal renderings
+// const Grid = styled.div`
+//   display: grid;
+//   grid-template-columns: 15px 30px 50px 87px auto auto 77px 75px;
+//   grid-template-rows: 32px;
+//   line-height: 20px;
+//   border: 1px dashed red;
+// `;
+
 const Grid = styled.div`
-  display: grid;
-  grid-template-columns: 15px 30px 50px 87px auto auto 77px 75px;
-  grid-template-rows: 32px;
+  display: flex;
+  flex-direction: row;
+  flex-wap: nowrap;
   line-height: 20px;
+  justify-content: flex-start;
+  border: 1px dashed red;
 `;
 
 const Column = styled.div`
   font-size: 12px;
   display: flex;
   align-items: center;
-  border: none;
+  border: 1px dashed blue;
 `;
 
 const GrayFont = styled.div`
@@ -33,7 +43,7 @@ const GrayFont = styled.div`
   color: #717171;
   display: flex;
   align-items: center;
-  border: none;
+  border: 1px dashed blue;
 `;
 
 const Location = styled.div`
@@ -43,7 +53,7 @@ const Location = styled.div`
   text-decoration: underline;
   display: flex;
   align-items: center;
-  border: none;
+  border: 1px dashed blue;
 `;
 
 const A = styled.a`
@@ -56,7 +66,16 @@ const Star = styled.span`
   color: #ff385c;
   display: flex;
   align-items: center;
-  border: none;
+  border: 1px dashed blue;
+`;
+
+const ButtonDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wap: nowrap;
+  line-height: 20px;
+  margin-left: auto;
+  border: 1px dashed green;
 `;
 
 const Button = styled.button`
@@ -91,28 +110,28 @@ const TitleBar = (props) => (
         <b>{props.listing.rating}</b>
       </Column>
       <GrayFont>
-        ({props.listing.totalratings}) &nbsp; ·
+        ({props.listing.totalratings}) · &nbsp;
       </GrayFont>
-      <GrayFont>
-        <img src="https://propertygallery.s3-us-west-1.amazonaws.com/superhost.jpg" alt="" style={{ height: 16, width: 12 }} />
-        Superhost &nbsp;·
-      </GrayFont>
+      {props.listing.superhost ? (
+        <GrayFont>
+          <img src="https://propertygallery.s3-us-west-1.amazonaws.com/superhost.jpg" alt="" style={{ height: 16, width: 12 }} />
+          Superhost &nbsp; · &nbsp;
+        </GrayFont>
+      ) : null }
       <Location>
         <A href="https://www.airbnb.com/">{props.listing.location}</A>
       </Location>
       <Column />
-      <Column>
+      <ButtonDiv>
         <Button onClick={props.alert}>
           <Arrow />
           Share
         </Button>
-      </Column>
-      <Column>
         <Button onClick={props.toggleSaved}>
           <Heart saved={props.savedState} />
           {props.savedState ? 'Saved' : 'Save'}
         </Button>
-      </Column>
+      </ButtonDiv>
     </Grid>
   </Wrapper>
 );

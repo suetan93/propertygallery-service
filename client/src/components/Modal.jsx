@@ -9,8 +9,12 @@ const Window = styled.div`
   background-color: white;
   position: fixed;
   width: 100%;
-  height: ${prop => prop.showModal ? '100%' : 0 };
-  margin-top: -29em;
+  height: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom:0;
+  z-index: 50;
   grid-template-rows: 15% 60% 25%;
   font-family: Circular, -apple-system, system-ui, Roboto, "Helvetica Neue", sans-serif;
   font-size: 14px;
