@@ -77,8 +77,8 @@ const Button = styled.button`
   font-size: 14px;
   font-weight: 530;
   text-decoration: underline;
-  width: 67px;
-  height: 25px;
+  width: 70px;
+  height: 27px;
   padding: 4px;
   display: flex;
   align-items: center;
@@ -106,7 +106,7 @@ const TitleBar = (props) => (
       </GrayFont>
       {props.listing.superhost ? (
         <GrayFont>
-          <img src="https://propertygallery.s3-us-west-1.amazonaws.com/superhosticon.jpg" alt="" style={{ height: 16, width: 10 }} />
+          <img src="https://propertygallery.s3-us-west-1.amazonaws.com/superhosticon.jpg" alt="" style={{ height: 15, width: 10 }} />
           &nbsp;Superhost&nbsp; · &nbsp;
         </GrayFont>
       ) : null }

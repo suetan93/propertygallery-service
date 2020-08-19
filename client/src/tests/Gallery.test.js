@@ -47,9 +47,4 @@ describe('TitleBar Component', () => {
     const wrapper = shallow(<Gallery images={images} />);
     expect(wrapper.containsMatchingElement(<img src='https://kitchen.jpg' />)).toBe(true);
   });
-
-  it('Should have a Show all photos button', () => {
-    const wrapper = shallow(<Gallery images={images} />);
-    expect(wrapper.find('button').text()).toEqual('Show all photos');
-  });
 });

@@ -166,36 +166,9 @@ const ArrowButton = styled.button`
 class Modal extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      photoSet: this.props.images,
-      currentIndex: 0,
-    };
-    this.next = this.next.bind(this);
-    this.previous = this.previous.bind(this);
-  }
-
-  next(e) {
-    e.preventDefault();
-    let lastIndex = this.state.photoSet.length;
-    if (this.state.currentIndex + 1 !== lastIndex) {
-      this.setState({ currentIndex: this.state.currentIndex + 1 });
-    } else {
-      this.setState({ currentIndex: 0 });
-    }
-  }
-
-  previous(e) {
-    e.preventDefault();
-    if (this.state.currentIndex - 1 > 0) {
-      this.setState({ currentIndex: this.state.currentIndex - 1 });
-    } else {
-      this.setState({ currentIndex: this.state.photoSet.length - 1 });
-    }
   }
 
   render() {
-    const { currentIndex, photoSet } = this.state;
-
     return (
       <div>
         {this.props.showModal ? (
@@ -207,7 +180,7 @@ class Modal extends React.Component {
                 </CloseButton>
               </CloseDiv>
               <Counter>
-                {currentIndex + 1}/{photoSet.length}
+                {this.props.photoIndex + 1}/{this.props.images.length}
               </Counter>
               <IconsDiv>
                 <IconButtons onClick={this.props.alert}>
@@ -222,7 +195,7 @@ class Modal extends React.Component {
             <Body>
               <Content>
                 <Left>
-                  <ArrowButton onClick={this.previous}>
+                  <ArrowButton onClick={this.props.previousPhoto}>
                     <LeftArrow aria-hidden="true" role="presentation" focusable="false" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
                       <g fill="none">
                         <path d="m20 28-11.29289322-11.2928932c-.39052429-.3905243-.39052429-1.0236893 0-1.4142136l11.29289322-11.2928932" />
@@ -231,10 +204,10 @@ class Modal extends React.Component {
                   </ArrowButton>
                 </Left>
               </Content>
-                <Img src={`${photoSet[currentIndex].url}`} />
+                <Img src={`${this.props.images[this.props.photoIndex].url}`} />
               <Content>
                 <Right>
-                  <ArrowButton onClick={this.next}>
+                  <ArrowButton onClick={this.props.nextPhoto}>
                     <RightArrow aria-hidden="true" role="presentation" focusable="false" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
                       <g fill="none">
                         <path d="m12 4 11.2928932 11.2928932c.3905243.3905243.3905243 1.0236893 0 1.4142136l-11.2928932 11.2928932" />
@@ -246,10 +219,10 @@ class Modal extends React.Component {
             </Body>
             <Footer>
               <Description>
-                {photoSet[currentIndex].verified ? 'Verified' : null}
+                {this.props.images[this.props.photoIndex].verified ? 'Verified' : null}
               </Description>
               <Description>
-                {photoSet[currentIndex].caption}
+                {this.props.images[this.props.photoIndex].caption}
               </Description>
             </Footer>
           </Window>

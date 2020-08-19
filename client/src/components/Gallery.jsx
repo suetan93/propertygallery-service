@@ -30,7 +30,7 @@ const PhotoBox = styled.div`
   display: grid;
   margin: 0 auto;
   width: 1000px;
-  border: none;
+  border: 1px dashed black;
   grid-template-columns: 2fr 1fr 1fr;
   grid-template-rows: 150px 150px;
   gap: 5px;
@@ -79,20 +79,20 @@ const bottomRight = {
 
 const Gallery = (props) => (
   <PhotoBox>
-    <MainPhoto onClick={props.toggleModal}>
-      <img src={`${props.images[0].url}`} alt="" style={left}/>
+    <MainPhoto onClick={props.clickPhoto}>
+      <img src={`${props.images[0].url}`} alt="0" style={left}/>
     </MainPhoto>
-    <div onClick={props.toggleModal}>
-      <Img src={`${props.images[1].url}`} alt="" style={mid} />
+    <div onClick={props.clickPhoto}>
+      <Img src={`${props.images[1].url}`} alt="1" style={mid} />
     </div>
-    <div onClick={props.toggleModal}>
-      <Img src={`${props.images[2].url}`} alt="" style={topRight} />
+    <div onClick={props.clickPhoto}>
+      <Img src={`${props.images[2].url}`} alt="2" style={topRight} />
     </div>
-    <div onClick={props.toggleModal}>
-      <Img src={`${props.images[3].url}`} alt="" style={mid} />
+    <div onClick={props.clickPhoto}>
+      <Img src={`${props.images[3].url}`} alt="3" style={mid} />
     </div>
-    <div onClick={props.toggleModal}>
-      <Img src={`${props.images[4].url}`} alt="" style={bottomRight} />
+    <div>
+      <Img src={`${props.images[4].url}`} alt="4" style={bottomRight} onClick={props.clickPhoto} />
       <ButtonDiv>
         <Button onClick={props.toggleModal}>Show all photos</Button>
       </ButtonDiv>
