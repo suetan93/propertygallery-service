@@ -1,15 +1,37 @@
 /* eslint-disable arrow-body-style */
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import Arrow from './ArrowIcon.jsx';
 import Heart from './HeartIcon.jsx';
+
+const slideUp = keyframes`
+  from {
+    bottom: -400px;
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  to {
+    bottom: 0;
+    opacity: 1;
+    transform: scale(1);
+  }
+`;
+
+const slideDown = keyframes`
+  from {
+    bottom: 0;
+    opacity: 1;
+  }
+  to {
+    bottom: -400px;
+    opacity: 0;
+  }
+`;
 
 const Window = styled.div`
   display: grid;
   background-color: white;
   position: fixed;
-  width: 100%;
-  height: 100%;
   left: 0;
   right: 0;
   top: 0;
@@ -18,6 +40,9 @@ const Window = styled.div`
   grid-template-rows: 15% 60% 25%;
   font-family: Circular, -apple-system, system-ui, Roboto, "Helvetica Neue", sans-serif;
   font-size: 14px;
+  animation: ${prop => prop.showModal ? slideUp : slideDown};
+  animation-duration: 900ms;
+
 `;
 
 const Head = styled.div`
