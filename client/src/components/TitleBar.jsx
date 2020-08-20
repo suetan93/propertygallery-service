@@ -8,28 +8,30 @@ const Wrapper = styled.div`
   width: 1000px;
   height: 64px;
   border: none;
-  font-size: 26px;
+  font-size: 28px;
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
   letter-spacing: normal;
 `;
 
-// use props in styled components for conditonal renderings
 const Grid = styled.div`
-  display: grid;
-  grid-template-columns: 15px 30px 50px 87px auto auto 77px 75px;
-  grid-template-rows: 32px;
+  display: flex;
+  flex-direction: row;
+  flex-wap: nowrap;
   line-height: 20px;
+  justify-content: flex-start;
+  padding-top: 5px;
+  border: none;
 `;
 
 const Column = styled.div`
-  font-size: 12px;
+  font-size: 14px;
   display: flex;
   align-items: center;
   border: none;
 `;
 
 const GrayFont = styled.div`
-  font-size: 12px;
+  font-size: 14px;
   color: #717171;
   display: flex;
   align-items: center;
@@ -37,9 +39,9 @@ const GrayFont = styled.div`
 `;
 
 const Location = styled.div`
-  font-size: 12px;
+  font-size: 14px;
   color: #717171;
-  font-weight: bold;
+  font-weight: 500;
   text-decoration: underline;
   display: flex;
   align-items: center;
@@ -51,7 +53,7 @@ const A = styled.a`
 `;
 
 const Star = styled.span`
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   color: #ff385c;
   display: flex;
@@ -59,16 +61,25 @@ const Star = styled.span`
   border: none;
 `;
 
+const ButtonDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wap: nowrap;
+  line-height: 20px;
+  margin-left: auto;
+  border: none;
+`;
+
 const Button = styled.button`
   border: none;
   border-radius: 5px;
   background-color: #fff;
-  font-size: 12px;
-  font-weight: 550;
+  font-size: 14px;
+  font-weight: 530;
   text-decoration: underline;
-  width: 67px;
-  height: 25px;
-  padding: 3px;
+  width: 70px;
+  height: 27px;
+  padding: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -88,31 +99,31 @@ const TitleBar = (props) => (
         &#9733;
       </Star>
       <Column>
-        <b>{props.listing.rating}</b>
+      &nbsp;<b>{props.listing.rating}</b>
       </Column>
       <GrayFont>
-        ({props.listing.totalratings}) &nbsp; ·
+      &nbsp;({props.listing.totalratings}) ·&nbsp;
       </GrayFont>
-      <GrayFont>
-        <img src="https://propertygallery.s3-us-west-1.amazonaws.com/superhost.jpg" alt="" style={{ height: 16, width: 12 }} />
-        Superhost &nbsp;·
-      </GrayFont>
+      {props.listing.superhost ? (
+        <GrayFont>
+          <img src="https://propertygallery.s3-us-west-1.amazonaws.com/superhosticon.jpg" alt="" style={{ height: 15, width: 10 }} />
+          &nbsp;Superhost&nbsp; · &nbsp;
+        </GrayFont>
+      ) : null }
       <Location>
         <A href="https://www.airbnb.com/">{props.listing.location}</A>
       </Location>
       <Column />
-      <Column>
+      <ButtonDiv>
         <Button onClick={props.alert}>
           <Arrow />
           Share
         </Button>
-      </Column>
-      <Column>
         <Button onClick={props.toggleSaved}>
           <Heart saved={props.savedState} />
           {props.savedState ? 'Saved' : 'Save'}
         </Button>
-      </Column>
+      </ButtonDiv>
     </Grid>
   </Wrapper>
 );

@@ -11,6 +11,7 @@ class Header extends React.Component {
       property: {},
       images: [],
       showModal: false,
+      photoIndex: 0,
       saved: false,
     };
 
@@ -18,6 +19,9 @@ class Header extends React.Component {
     this.toggleModal = this.toggleModal.bind(this);
     this.toggleSaved = this.toggleSaved.bind(this);
     this.alert = this.alert.bind(this);
+    this.nextPhoto = this.nextPhoto.bind(this);
+    this.previousPhoto = this.previousPhoto.bind(this);
+    this.clickPhoto = this.clickPhoto.bind(this);
   }
 
   componentDidMount() {
@@ -33,7 +37,7 @@ class Header extends React.Component {
 
   toggleModal(e) {
     e.preventDefault();
-    this.setState({ showModal: !this.state.showModal });
+    this.setState({ showModal: !this.state.showModal, photoIndex: 0 });
   }
 
   toggleSaved(e) {
@@ -46,8 +50,32 @@ class Header extends React.Component {
     alert('Link copied!');
   };
 
+  nextPhoto(e) {
+    e.preventDefault();
+    let lastIndex = this.state.images.length;
+    if (this.state.photoIndex + 1 !== lastIndex) {
+      this.setState({ photoIndex: this.state.photoIndex + 1 });
+    } else {
+      this.setState({ photoIndex: 0 });
+    }
+  }
+
+  previousPhoto(e) {
+    e.preventDefault();
+    if (this.state.photoIndex - 1 >= 0) {
+      this.setState({ photoIndex: this.state.photoIndex - 1 });
+    } else {
+      this.setState({ photoIndex: this.state.images.length - 1 });
+    }
+  }
+
+  clickPhoto(e) {
+    e.preventDefault();
+    this.setState({ photoIndex: Number(e.target.alt), showModal: !this.state.showModal })
+  }
+
   render() {
-    const { property, images, showModal, saved } = this.state;
+    const { property, images, showModal, saved, photoIndex } = this.state;
 
     return (
       <div>
@@ -58,12 +86,13 @@ class Header extends React.Component {
           savedState={saved}
           alert={this.alert}
         />
-
+        <br />
         {images.length > 0 ? (
           <Gallery
             images={images}
             modalState={showModal}
             toggleModal={this.toggleModal}
+            clickPhoto={this.clickPhoto}
           />
         )
           : null}
@@ -75,6 +104,9 @@ class Header extends React.Component {
             toggleSaved={this.toggleSaved}
             savedState={saved}
             alert={this.alert}
+            photoIndex={photoIndex}
+            nextPhoto={this.nextPhoto}
+            previousPhoto={this.previousPhoto}
           />
         ) : null}
       </div>
