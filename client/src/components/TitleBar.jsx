@@ -9,7 +9,7 @@ const Wrapper = styled.div`
   height: 64px;
   border: none;
   font-size: 28px;
-  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
   letter-spacing: normal;
 `;
 
@@ -111,7 +111,9 @@ const TitleBar = (props) => (
         </GrayFont>
       ) : null }
       <Location>
-        <A href="https://www.airbnb.com/">{props.listing.location}</A>
+        <A href={`https://www.airbnb.com/s/${props.listing.location}/homes`}>
+          {props.listing.location}
+        </A>
       </Location>
       <Column />
       <ButtonDiv>
