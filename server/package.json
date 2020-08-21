@@ -4,7 +4,7 @@
   "description": "property photo gallery on airbnb",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server/index.js",
+    "start": "nodemon index.js",
     "seed": "node db/seeder.js",
     "react-dev": "webpack -d --watch",
     "test": "jest",
