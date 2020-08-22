@@ -1,15 +1,46 @@
 /* eslint-disable arrow-body-style */
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import Arrow from './ArrowIcon.jsx';
 import Heart from './HeartIcon.jsx';
+
+const slideUp = keyframes`
+  from {
+    bottom: -400px;
+    opacity: 0;
+    width: 100%;
+    transform: scale(0.7);
+  }
+  to {
+    bottom: 0;
+    opacity: 1;
+  }
+`;
+
+const slideDown = keyframes`
+  from {
+    bottom: 0;
+    opacity: 1;
+  }
+  to {
+    bottom: -400px;
+    opacity: 1;
+  }
+`;
+
+const fade = keyframes`
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+`;
 
 const Window = styled.div`
   display: grid;
   background-color: white;
   position: fixed;
-  width: 100%;
-  height: 100%;
   left: 0;
   right: 0;
   top: 0;
@@ -18,6 +49,9 @@ const Window = styled.div`
   grid-template-rows: 15% 60% 25%;
   font-family: Circular, -apple-system, system-ui, Roboto, "Helvetica Neue", sans-serif;
   font-size: 14px;
+  animation: ${prop => prop.showModal ? slideUp : slideDown};
+  animation-duration: 800ms;
+
 `;
 
 const Head = styled.div`
@@ -115,7 +149,10 @@ const Right = styled.div`
 `;
 
 const Img = styled.img`
-  height 100%;
+  height: 100%;
+  border: none;
+  animation: ${fade};
+  transition: .2s ease-in-out;
 `;
 
 const Footer = styled.div`
@@ -129,6 +166,7 @@ const Description = styled.div`
   border: none;
   text-align: center;
   height: 100%;
+  padding: 3px;
 `;
 
 const RightArrow = styled.svg`
@@ -204,7 +242,7 @@ class Modal extends React.Component {
                   </ArrowButton>
                 </Left>
               </Content>
-                <Img src={`${this.props.images[this.props.photoIndex].url}`} />
+              <Img src={`${this.props.images[this.props.photoIndex].url}`} />
               <Content>
                 <Right>
                   <ArrowButton onClick={this.props.nextPhoto}>
@@ -219,7 +257,7 @@ class Modal extends React.Component {
             </Body>
             <Footer>
               <Description>
-                {this.props.images[this.props.photoIndex].verified ? 'Verified' : null}
+                {this.props.images[this.props.photoIndex].verified ? <Img src="https://propertygallery.s3-us-west-1.amazonaws.com/airbnb_verified.jpg" /> : null}
               </Description>
               <Description>
                 {this.props.images[this.props.photoIndex].caption}

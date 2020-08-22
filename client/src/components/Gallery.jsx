@@ -30,7 +30,7 @@ const PhotoBox = styled.div`
   display: grid;
   margin: 0 auto;
   width: 1000px;
-  border: 1px dashed black;
+  border: none;
   grid-template-columns: 2fr 1fr 1fr;
   grid-template-rows: 150px 150px;
   gap: 5px;
