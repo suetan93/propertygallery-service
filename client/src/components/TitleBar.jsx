@@ -16,7 +16,7 @@ const Wrapper = styled.div`
 const Grid = styled.div`
   display: flex;
   flex-direction: row;
-  flex-wap: nowrap;
+  flex-wrap: nowrap;
   line-height: 20px;
   justify-content: flex-start;
   padding-top: 5px;
@@ -64,7 +64,7 @@ const Star = styled.span`
 const ButtonDiv = styled.div`
   display: flex;
   flex-direction: row;
-  flex-wap: nowrap;
+  flex-wrap: nowrap;
   line-height: 20px;
   margin-left: auto;
   border: none;
