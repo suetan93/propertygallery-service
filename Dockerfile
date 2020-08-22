@@ -14,8 +14,8 @@ COPY package.json ./
 # install dependencies
 RUN npm install
 
-# Make port 6000 available to the world outside this container
-EXPOSE 6000
+# Make port 3003 available to the world outside this container
+EXPOSE 3003
 
 # Run the app when the container launches
 CMD ["npm", "start"]
