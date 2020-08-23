@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   margin: 0 auto;
   width: 1000px;
   height: 64px;
-  padding-top: 70px;
+  padding-top: 80px;
   border: none;
   font-size: 28px;
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;

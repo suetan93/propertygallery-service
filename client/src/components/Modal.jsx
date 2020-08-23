@@ -67,6 +67,9 @@ const CloseButton = styled.button`
   font-size: 13px;
   font-weight: 450;
   border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 30px;
   width: 80px;
   border: hidden;
@@ -191,6 +194,13 @@ const ArrowButton = styled.button`
   }
 `;
 
+const CloseSvg = styled.svg`
+  height: 12px;
+  width: 12px;
+  display: block;
+  fill: currentcolor;
+`;
+
 const Modal = (props) => (
   <div>
     {props.showModal ? (
@@ -198,7 +208,10 @@ const Modal = (props) => (
         <Head>
           <CloseDiv>
             <CloseButton type="button" onClick={props.toggleModal}>
-              X &nbsp; Close
+              <CloseSvg viewBox="0 0 12 12" role="presentation" aria-hidden="true" focusable="false">
+                <path d="m11.5 10.5c.3.3.3.8 0 1.1s-.8.3-1.1 0l-4.4-4.5-4.5 4.5c-.3.3-.8.3-1.1 0s-.3-.8 0-1.1l4.5-4.5-4.4-4.5c-.3-.3-.3-.8 0-1.1s.8-.3 1.1 0l4.4 4.5 4.5-4.5c.3-.3.8-.3 1.1 0s .3.8 0 1.1l-4.5 4.5z" fill-rule="evenodd">
+                </path>
+              </CloseSvg> &nbsp; Close
             </CloseButton>
           </CloseDiv>
           <Counter>
