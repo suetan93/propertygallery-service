@@ -7,6 +7,7 @@ const Wrapper = styled.div`
   margin: 0 auto;
   width: 1000px;
   height: 64px;
+  padding-top: 80px;
   border: none;
   font-size: 28px;
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
@@ -89,6 +90,7 @@ const Button = styled.button`
     background-color: #f5f5f5;
     cursor: pointer;
   }
+
 `;
 
 const TitleBar = (props) => (
@@ -102,7 +104,7 @@ const TitleBar = (props) => (
       &nbsp;<b>{props.listing.rating}</b>
       </Column>
       <GrayFont>
-      &nbsp;({props.listing.totalratings}) ·&nbsp;
+      &nbsp;({props.listing.totalratings}) &nbsp;·&nbsp;&nbsp;
       </GrayFont>
       {props.listing.superhost ? (
         <GrayFont>

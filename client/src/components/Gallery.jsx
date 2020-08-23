@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Info from './Info.jsx';
 
 const ButtonDiv = styled.div`
   position: relative;
@@ -97,6 +98,7 @@ const Gallery = (props) => (
         <Button onClick={props.toggleModal}>Show all photos</Button>
       </ButtonDiv>
     </div>
+
   </PhotoBox>
 );
 

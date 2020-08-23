@@ -8,7 +8,6 @@ const slideUp = keyframes`
   from {
     bottom: -400px;
     opacity: 0;
-    width: 100%;
     transform: scale(0.7);
   }
   to {
@@ -28,30 +27,22 @@ const slideDown = keyframes`
   }
 `;
 
-const fade = keyframes`
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-`;
-
 const Window = styled.div`
   display: grid;
   background-color: white;
   position: fixed;
   left: 0;
   right: 0;
-  top: 0;
-  bottom:0;
-  z-index: 50;
+  top: ${prop => prop.showModal ? '0' : '-100%'};
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 80;
   grid-template-rows: 15% 60% 25%;
   font-family: Circular, -apple-system, system-ui, Roboto, "Helvetica Neue", sans-serif;
   font-size: 14px;
   animation: ${prop => prop.showModal ? slideUp : slideDown};
   animation-duration: 800ms;
-
 `;
 
 const Head = styled.div`
@@ -76,6 +67,9 @@ const CloseButton = styled.button`
   font-size: 13px;
   font-weight: 450;
   border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 30px;
   width: 80px;
   border: hidden;
@@ -151,7 +145,6 @@ const Right = styled.div`
 const Img = styled.img`
   height: 100%;
   border: none;
-  animation: ${fade};
   transition: .2s ease-in-out;
 `;
 
@@ -201,74 +194,76 @@ const ArrowButton = styled.button`
   }
 `;
 
-class Modal extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+const CloseSvg = styled.svg`
+  height: 12px;
+  width: 12px;
+  display: block;
+  fill: currentcolor;
+`;
 
-  render() {
-    return (
-      <div>
-        {this.props.showModal ? (
-          <Window showModal={this.props.showModal}>
-            <Head>
-              <CloseDiv>
-                <CloseButton type="button" onClick={this.props.toggleModal}>
-                  X &nbsp; Close
-                </CloseButton>
-              </CloseDiv>
-              <Counter>
-                {this.props.photoIndex + 1}/{this.props.images.length}
-              </Counter>
-              <IconsDiv>
-                <IconButtons onClick={this.props.alert}>
-                  <Arrow />
-                </IconButtons>
-                &nbsp;
-                <IconButtons onClick={this.props.toggleSaved}>
-                  <Heart saved={this.props.savedState} />
-                </IconButtons>
-              </IconsDiv>
-            </Head>
-            <Body>
-              <Content>
-                <Left>
-                  <ArrowButton onClick={this.props.previousPhoto}>
-                    <LeftArrow aria-hidden="true" role="presentation" focusable="false" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                      <g fill="none">
-                        <path d="m20 28-11.29289322-11.2928932c-.39052429-.3905243-.39052429-1.0236893 0-1.4142136l11.29289322-11.2928932" />
-                      </g>
-                    </LeftArrow>
-                  </ArrowButton>
-                </Left>
-              </Content>
-              <Img src={`${this.props.images[this.props.photoIndex].url}`} />
-              <Content>
-                <Right>
-                  <ArrowButton onClick={this.props.nextPhoto}>
-                    <RightArrow aria-hidden="true" role="presentation" focusable="false" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                      <g fill="none">
-                        <path d="m12 4 11.2928932 11.2928932c.3905243.3905243.3905243 1.0236893 0 1.4142136l-11.2928932 11.2928932" />
-                      </g>
-                    </RightArrow>
-                  </ArrowButton>
-                </Right>
-              </Content>
-            </Body>
-            <Footer>
-              <Description>
-                {this.props.images[this.props.photoIndex].verified ? <Img src="https://propertygallery.s3-us-west-1.amazonaws.com/airbnb_verified.jpg" /> : null}
-              </Description>
-              <Description>
-                {this.props.images[this.props.photoIndex].caption}
-              </Description>
-            </Footer>
-          </Window>
-        )
-          : null}
-      </div>
-    );
-  }
-}
+const Modal = (props) => (
+  <div>
+    {props.showModal ? (
+      <Window showModal={props.showModal}>
+        <Head>
+          <CloseDiv>
+            <CloseButton type="button" onClick={props.toggleModal}>
+              <CloseSvg viewBox="0 0 12 12" role="presentation" aria-hidden="true" focusable="false">
+                <path d="m11.5 10.5c.3.3.3.8 0 1.1s-.8.3-1.1 0l-4.4-4.5-4.5 4.5c-.3.3-.8.3-1.1 0s-.3-.8 0-1.1l4.5-4.5-4.4-4.5c-.3-.3-.3-.8 0-1.1s.8-.3 1.1 0l4.4 4.5 4.5-4.5c.3-.3.8-.3 1.1 0s .3.8 0 1.1l-4.5 4.5z" fill-rule="evenodd">
+                </path>
+              </CloseSvg> &nbsp; Close
+            </CloseButton>
+          </CloseDiv>
+          <Counter>
+            {props.photoIndex + 1}/{props.images.length}
+          </Counter>
+          <IconsDiv>
+            <IconButtons onClick={props.alert}>
+              <Arrow />
+            </IconButtons>
+            &nbsp;
+            <IconButtons onClick={props.toggleSaved}>
+              <Heart saved={props.savedState} />
+            </IconButtons>
+          </IconsDiv>
+        </Head>
+        <Body>
+          <Content>
+            <Left>
+              <ArrowButton onClick={props.previousPhoto}>
+                <LeftArrow aria-hidden="true" role="presentation" focusable="false" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                  <g fill="none">
+                    <path d="m20 28-11.29289322-11.2928932c-.39052429-.3905243-.39052429-1.0236893 0-1.4142136l11.29289322-11.2928932" />
+                  </g>
+                </LeftArrow>
+              </ArrowButton>
+            </Left>
+          </Content>
+          <Img src={`${props.images[props.photoIndex].url}`} />
+          <Content>
+            <Right>
+              <ArrowButton onClick={props.nextPhoto}>
+                <RightArrow aria-hidden="true" role="presentation" focusable="false" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                  <g fill="none">
+                    <path d="m12 4 11.2928932 11.2928932c.3905243.3905243.3905243 1.0236893 0 1.4142136l-11.2928932 11.2928932" />
+                  </g>
+                </RightArrow>
+              </ArrowButton>
+            </Right>
+          </Content>
+        </Body>
+        <Footer>
+          <Description>
+            {props.images[props.photoIndex].verified ? <Img src="https://propertygallery.s3-us-west-1.amazonaws.com/airbnb_verified.jpg" /> : null}
+          </Description>
+          <Description>
+            {props.images[props.photoIndex].caption}
+          </Description>
+        </Footer>
+      </Window>
+    )
+      : null}
+  </div>
+)
 
 export default Modal;

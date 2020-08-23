@@ -3,6 +3,8 @@ import axios from 'axios';
 import TitleBar from './TitleBar.jsx';
 import Gallery from './Gallery.jsx';
 import Modal from './Modal.jsx';
+import Info from './Info.jsx';
+import NavBar from './NavBar.jsx';
 
 class Header extends React.Component {
   constructor(props) {
@@ -79,6 +81,7 @@ class Header extends React.Component {
 
     return (
       <div>
+        <NavBar />
         <br />
         <TitleBar
           listing={property}
@@ -96,6 +99,8 @@ class Header extends React.Component {
           />
         )
           : null}
+        <br />
+        <Info />
         {images.length > 0 ? (
           <Modal
             showModal={showModal}
@@ -109,6 +114,7 @@ class Header extends React.Component {
             previousPhoto={this.previousPhoto}
           />
         ) : null}
+        <br />
       </div>
     );
   }
