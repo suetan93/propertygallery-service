@@ -158,8 +158,7 @@ const Info = () => (
       <br />
     </div>
     <Description>
-      Imagine enjoying a good night's rest in the most comfortable bed. Imagine waking up to a stunning view of the sunrise. You can have it all! A freshly renovated Eco-Modern Style home near all populara attractions.
-
+      Imagine enjoying a good night's rest in the most comfortable bed. Imagine waking up to a stunning view of the sunrise. You can have it all! A freshly renovated Eco-Modern Style home near all popular attractions.
     </Description>
     <div>
       <br />
