@@ -89,6 +89,7 @@ const Button = styled.button`
     background-color: #f5f5f5;
     cursor: pointer;
   }
+
 `;
 
 const TitleBar = (props) => (
@@ -102,7 +103,7 @@ const TitleBar = (props) => (
       &nbsp;<b>{props.listing.rating}</b>
       </Column>
       <GrayFont>
-      &nbsp;({props.listing.totalratings}) ·&nbsp;
+      &nbsp;({props.listing.totalratings}) &nbsp;·&nbsp;&nbsp;
       </GrayFont>
       {props.listing.superhost ? (
         <GrayFont>

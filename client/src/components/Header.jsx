@@ -3,6 +3,7 @@ import axios from 'axios';
 import TitleBar from './TitleBar.jsx';
 import Gallery from './Gallery.jsx';
 import Modal from './Modal.jsx';
+import Info from './Info.jsx';
 
 class Header extends React.Component {
   constructor(props) {
@@ -109,6 +110,8 @@ class Header extends React.Component {
             previousPhoto={this.previousPhoto}
           />
         ) : null}
+        <br />
+        <Info />
       </div>
     );
   }
