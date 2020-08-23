@@ -4,6 +4,7 @@ import TitleBar from './TitleBar.jsx';
 import Gallery from './Gallery.jsx';
 import Modal from './Modal.jsx';
 import Info from './Info.jsx';
+import NavBar from './NavBar.jsx';
 
 class Header extends React.Component {
   constructor(props) {
@@ -80,6 +81,7 @@ class Header extends React.Component {
 
     return (
       <div>
+        <NavBar />
         <br />
         <TitleBar
           listing={property}
