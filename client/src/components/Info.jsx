@@ -7,58 +7,56 @@ const ParentDiv = styled.div`
   justify-content: flex-start;
   margin: 0 auto;
   width: 1000px;
-  border: 1px dashed black;
+  border: none;
   font-family: Circular, -apple-system, system-ui, Roboto, "Helvetica Neue", sans-serif;
 `;
 
 const Title = styled.div`
  display: grid;
+ width: 540px;
  font-size: 22px;
  font-weight: 450;
- grid-template-columns: 50% 50%;
- border: 1px dashed blue;
- padding: 5px;
+ grid-template-columns: 90% 10%;
+ border: none;
+ padding-left: 5px;
 `;
 
 const Subtitle = styled.div`
  font-size: 16px;
  font-weight: 300;
  color: #222222;
- padding-top: 5px;
-`;
-
-const HostIcon = styled.div`
-  grid-row: 1 / span 2;
-  border: 1px dashed blue;
+ border: none;
 `;
 
 const InfoEntry = styled.div`
   display: grid;
-  width: 450px;
+  width: 550px;
   grid-template-columns: 35px 965px;
-  border: 1px dashed purple;
+  border: none;
   font-family: Circular, -apple-system, system-ui, Roboto, "Helvetica Neue", sans-serif;
-  padding: 10px;
+  padding-left: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 `;
 
 const Icon = styled.div`
-  border: 1px dashed green;
+  border: none;
   grid-row: 1 / span 2;
 `;
 
 const Text = styled.div`
   font-weight: 700;
   font-size: 16px;
-  border: 1px dashed red;
-  width: 400px;
+  border: none;
+  width: 500px;
 `;
 
 const Subtext = styled.div`
- font-size: 14px;
- font-weight: 400;
- color: #717171;
- width: 400px;
- `;
+  font-size: 14px;
+  font-weight: 400;
+  color: #717171;
+  width: 500px;
+`;
 
 const Svg = styled.svg`
   display: block;
@@ -67,28 +65,48 @@ const Svg = styled.svg`
   fill: currentcolor;
 `;
 
+const Description = styled.div`
+  color: #222;
+  font-size: 16px;
+  width: 550px;
+  border: none;
+  padding: 5px;
+  line-height: 24px;
+`;
+
 const Hr = styled.hr`
   display: block;
-  width: 600px;
+  width: 550px;
   margin-left: 0;
   height: 0;
   border: 0;
-  border-top: 1px solid #dcdcdc;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  border-top: 1px solid #ccc;
 `;
+
+const HostIcon = styled.div`
+  grid-column-start: 2;
+  grid-row-end: span 2;
+  border: none;
+`;
+
+const HostImg = styled.img`
+  border-radius: 35px;
+`;
+
 
 const Info = () => (
   <ParentDiv>
     <div>
       <Hr />
+      <br />
     </div>
     <Title>
       <div>
         Entire property hosted by Jon Snow
       </div>
-      <div>
-        Icon
-      </div>
+      <HostIcon>
+        <HostImg src="https://propertygallery.s3-us-west-1.amazonaws.com/jon-snow.jpg" style={{width: 60, height: 60}}/>
+      </HostIcon>
       <Subtitle>
         5 guests · 2 bedrooms · 3 beds · 2 baths
       </Subtitle>
@@ -135,6 +153,19 @@ const Info = () => (
         Cancel before 3:00 PM on Friday and get a 50% refund, minus the service fee.
       </Subtext>
     </InfoEntry>
+    <div>
+      <Hr />
+      <br />
+    </div>
+    <Description>
+      Imagine enjoying a good night's rest in the most comfortable bed. Imagine waking up to a stunning view of the sunrise. You can have it all! A freshly renovated Eco-Modern Style home near all populara attractions.
+
+    </Description>
+    <div>
+      <br />
+      <Hr />
+    </div>
+    <br/>
   </ParentDiv>
 );
 
