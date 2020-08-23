@@ -12,7 +12,7 @@ const Bar = styled.div`
   height: 70px;
   padding-top: 10px;
   z-index: 5;
-  border-bottom: 1px solid #ddd;
+  box-shadow: 0px 15px 10px -15px #ddd;
 `;
 
 const Svg = styled.svg`
