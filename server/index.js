@@ -1,12 +1,14 @@
+var compression = require('compression')
 const express = require('express');
 const path = require('path');
 const db = require('./db/index');
 
 const app = express();
-const PORT = 3003;
+const PORT = 3009;
 
 const dist = path.join(__dirname, '../client/public');
 
+app.use(compression())
 app.use(express.static(dist));
 app.use(express.json());
 

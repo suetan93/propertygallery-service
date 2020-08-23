@@ -23,6 +23,7 @@
   "homepage": "https://github.com/ladies-room/propertygallery-service#readme",
   "dependencies": {
     "axios": "^0.19.2",
+    "compression": "^1.7.4",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "express": "^4.17.1",
