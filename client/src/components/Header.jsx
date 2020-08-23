@@ -99,6 +99,8 @@ class Header extends React.Component {
           />
         )
           : null}
+        <br />
+        <Info />
         {images.length > 0 ? (
           <Modal
             showModal={showModal}
@@ -113,7 +115,6 @@ class Header extends React.Component {
           />
         ) : null}
         <br />
-        <Info />
       </div>
     );
   }

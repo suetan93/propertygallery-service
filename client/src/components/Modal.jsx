@@ -30,12 +30,14 @@ const slideDown = keyframes`
 const Window = styled.div`
   display: grid;
   background-color: white;
-  position: absolute;
+  position: fixed;
   left: 0;
   right: 0;
   top: ${prop => prop.showModal ? '0' : '-100%'};
   bottom: 0;
-  z-index: 50;
+  width: 100%;
+  height: 100%;
+  z-index: 80;
   grid-template-rows: 15% 60% 25%;
   font-family: Circular, -apple-system, system-ui, Roboto, "Helvetica Neue", sans-serif;
   font-size: 14px;

@@ -9,6 +9,7 @@ const ParentDiv = styled.div`
   width: 1000px;
   border: none;
   font-family: Circular, -apple-system, system-ui, Roboto, "Helvetica Neue", sans-serif;
+  z-index: -1;
 `;
 
 const Title = styled.div`
