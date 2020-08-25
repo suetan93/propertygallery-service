@@ -1,3 +1,5 @@
+const webpack = require('webpack');
+
 module.exports = {
   entry: __dirname + '/client/src/index.jsx',
   module: {
@@ -16,6 +18,13 @@ module.exports = {
   },
    output: {
     filename: 'bundle.js',
-    path: __dirname + '/client/public'
-  }
+    path: __dirname + '/client/public',
+  },
+  plugins: [
+    new webpack.DefinePlugin({ // <-- key to reducing React's size
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
+    }),
+  ],
 };
