@@ -21,7 +21,7 @@ module.exports = {
     path: __dirname + '/client/public',
   },
   plugins: [
-    new webpack.DefinePlugin({ // <-- key to reducing React's size
+    new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': JSON.stringify('production')
       }
