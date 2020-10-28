@@ -32,21 +32,22 @@ const PhotoBox = styled.div`
   margin: 0 auto;
   width: 1000px;
   border: none;
+  border-radius: 15px;
   grid-template-columns: 2fr 1fr 1fr;
   grid-template-rows: 150px 150px;
   gap: 5px;
+  overflow: hidden;
 `;
 
 const MainPhoto = styled.div`
-   grid-row: 1 / span 2;
-   :hover {
-    filter: contrast(0.7);
-    transition: 0.4s ease-in-out;
-    cursor: pointer;
-  }
+  border: none;
+  grid-row: 1 / span 2;
 `;
 
 const Img = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   :hover {
     filter: contrast(0.7);
     transition: 0.4s ease-in-out;
@@ -54,46 +55,23 @@ const Img = styled.img`
   }
 `;
 
-const left = {
-  width: 500,
-  height: 305,
-  borderTopLeftRadius: 15,
-  borderBottomLeftRadius: 15,
-};
-
-const mid = {
-  width: 244,
-  height: 150,
-};
-
-const topRight = {
-  width: 244,
-  height: 150,
-  borderTopRightRadius: 15,
-};
-
-const bottomRight = {
-  width: 244,
-  height: 150,
-  borderBottomRightRadius: 15,
-};
 
 const Gallery = (props) => (
   <PhotoBox>
     <MainPhoto onClick={props.clickPhoto}>
-      <img src={`${props.images[0].url}`} alt="0" style={left}/>
+      <Img src={`${props.images[0].url}`} alt="0" />
     </MainPhoto>
     <div onClick={props.clickPhoto}>
-      <Img src={`${props.images[1].url}`} alt="1" style={mid} />
+      <Img src={`${props.images[1].url}`} alt="1" />
     </div>
     <div onClick={props.clickPhoto}>
-      <Img src={`${props.images[2].url}`} alt="2" style={topRight} />
+      <Img src={`${props.images[2].url}`} alt="2" />
     </div>
     <div onClick={props.clickPhoto}>
-      <Img src={`${props.images[3].url}`} alt="3" style={mid} />
+      <Img src={`${props.images[3].url}`} alt="3" />
     </div>
     <div>
-      <Img src={`${props.images[4].url}`} alt="4" style={bottomRight} onClick={props.clickPhoto} />
+      <Img src={`${props.images[4].url}`} alt="4"  onClick={props.clickPhoto} />
       <ButtonDiv>
         <Button onClick={props.toggleModal}>Show all photos</Button>
       </ButtonDiv>
