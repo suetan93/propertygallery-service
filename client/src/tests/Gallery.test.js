@@ -3,6 +3,18 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Gallery from '../components/Gallery';
+import styled from 'styled-components';
+
+const Img = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  :hover {
+    filter: contrast(0.7);
+    transition: 0.4s ease-in-out;
+    cursor: pointer;
+  }
+`;
 
 const images = [
   {
@@ -43,8 +55,9 @@ describe('TitleBar Component', () => {
     expect(wrapper.exists()).toBe(true);
   });
 
-  // it('Should display an image', () => {
-  //   const wrapper = shallow(<Gallery images={images} />);
-  //   expect(wrapper.containsMatchingElement(<img src='https://kitchen.jpg' />)).toBe(true);
-  // });    **** need to refactor ****
+  it('Should display image caption', () => {
+    const wrapper = shallow(<Gallery images={images} />);
+    expect(wrapper.find('Master bedroom')).toBeTruthy();
+  });
+
 });
