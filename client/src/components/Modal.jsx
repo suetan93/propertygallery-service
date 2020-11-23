@@ -254,7 +254,7 @@ const Modal = (props) => (
         </Body>
         <Footer>
           <Description>
-            {props.images[props.photoIndex].verified ? <Img src="https://propertygallery.s3-us-west-1.amazonaws.com/airbnb_verified.jpg" /> : null}
+            {props.images[props.photoIndex].verified ? <img src="https://propertygallery.s3-us-west-1.amazonaws.com/airbnb_verified.jpg" /> : null}
           </Description>
           <Description>
             {props.images[props.photoIndex].caption}
