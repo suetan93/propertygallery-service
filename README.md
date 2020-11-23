@@ -1,12 +1,12 @@
 # propertygallery-service
 
-An Image gallery component for an Airbnb mockup rental web application.
+A full stack Image Gallery component for an Airbnb mockup rental page.
 
 ## Technologies
   * React 16.3.1
   * Styled-Components
-  * Node.js
   * MongoDB/Mongoose
+  * Node.js
   * Jest
   * Enzyme
   * Webpack
