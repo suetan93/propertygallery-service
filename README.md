@@ -1,6 +1,6 @@
 # propertygallery-service
 
-A full stack Image Gallery component for an Airbnb mockup rental page.
+A full stack Image Gallery component for an Airbnb clone rental page.
 
 ## Technologies
   * React 16.3.1
